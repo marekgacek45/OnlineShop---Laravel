@@ -42,4 +42,9 @@ class AuthController extends Controller
     {
         dd($request->all());
     }
+    function postLogout()
+    {
+        Auth::logout();
+        return redirect()->intended('/')->with('success', 'Wylogowałeś się');
+    }
 }

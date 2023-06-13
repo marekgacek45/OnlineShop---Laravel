@@ -1,6 +1,5 @@
 @extends('layout/master')
 @section('subtitle', 'Zarejestruj się')
-
 @section('content')
 
     <main>

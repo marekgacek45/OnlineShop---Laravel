@@ -20,9 +20,10 @@ Route::get('/',[PagesController::class,('home')])->name('home');
 
 //AUTH
 
-Route::get('/login',[AuthController::class,('showLogin')])->name('showLogin');
 Route::get('/register',[AuthController::class,('showRegister')])->name('showRegister');
+Route::get('/login',[AuthController::class,('showLogin')])->name('showLogin');
 
-Route::post('/login',[AuthController::class,('postLogin')])->name('postLogin');
 Route::post('/register',[AuthController::class,('postRegister')])->name('postRegister');
+Route::post('/login',[AuthController::class,('postLogin')])->name('postLogin');
+Route::post('/logout',[AuthController::class,('postLogout')])->name('postLogout');
 
