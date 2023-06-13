@@ -23,3 +23,6 @@ Route::get('/',[PagesController::class,('home')])->name('home');
 Route::get('/login',[AuthController::class,('showLogin')])->name('showLogin');
 Route::get('/register',[AuthController::class,('showRegister')])->name('showRegister');
 
+Route::post('/login',[AuthController::class,('postLogin')])->name('postLogin');
+Route::post('/register',[AuthController::class,('postRegister')])->name('postRegister');
+
