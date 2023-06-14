@@ -1,3 +1,7 @@
-body{
-    background-color: red;
-}
+@use 'utilities/global';
+
+@use 'pages/home';
+
+@use 'pages/login';
+
+

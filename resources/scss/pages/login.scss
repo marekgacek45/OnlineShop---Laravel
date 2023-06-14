@@ -1,0 +1,81 @@
+@use "../utilities/colors";
+@use "../utilities/variables";
+@use "../utilities/mixins";
+
+.login {
+    background-color: yellow;
+    height: 85vh;
+    width: 100%;
+    &__container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+    }
+    &__box{
+        
+    }
+    &__form {
+       
+        border-radius: 12px;
+        background-color: white;
+        box-shadow: 5px 5px 12px white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1em;
+        width: 90%;
+
+        & h1 {
+            padding: 0.3em;
+        }
+        & p {
+            margin-bottom: 1em;
+        }
+
+        & label {
+            margin-left: 0.3em;
+        }
+
+        & input,
+        button {
+            padding: 0.7em;
+            border-radius: 10px;
+            box-shadow: 2px 2px 5px black;
+            outline: none;
+            border: none;
+            margin-bottom: 1em;
+            width: 100%;
+            
+        }
+        & button {
+            margin-top: 1.5em;
+            margin-bottom: 1em;
+            background-color: red;
+            cursor: pointer;
+        }
+    }
+
+    &__image {
+        display: none;
+        @include mixins.medium-devices {
+            display: inline-block;
+
+            border: 1px solid red;
+            width: 90%;
+            height: 45%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            & img {
+                // display: none;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+}

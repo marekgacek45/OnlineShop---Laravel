@@ -20,10 +20,10 @@ Route::get('/',[PagesController::class,('home')])->name('home');
 
 //AUTH
 
-Route::get('/register',[AuthController::class,('showRegister')])->name('showRegister');
-Route::get('/login',[AuthController::class,('showLogin')])->name('showLogin');
+Route::get('/register',[AuthController::class,('showRegister')])->name('showRegister')->middleware('guest');
+Route::get('/login',[AuthController::class,('showLogin')])->name('showLogin')->middleware('guest');
 
-Route::post('/register',[AuthController::class,('postRegister')])->name('postRegister');
-Route::post('/login',[AuthController::class,('postLogin')])->name('postLogin');
-Route::post('/logout',[AuthController::class,('postLogout')])->name('postLogout');
+Route::post('/register',[AuthController::class,('postRegister')])->name('postRegister')->middleware('guest');
+Route::post('/login',[AuthController::class,('postLogin')])->name('postLogin')->middleware('guest');
+Route::post('/logout',[AuthController::class,('postLogout')])->name('postLogout')->middleware('auth');
 

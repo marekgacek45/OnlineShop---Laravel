@@ -28,9 +28,9 @@ class AuthController extends Controller
         ]);
         //register
         $user = User::create([
-            'name'=>$request->name,
-            'email'=>$request->name,
-            'password'=>Hash::make($request->name),
+            'name' => $request->name,
+            'email' => $request->name,
+            'password' => Hash::make($request->name),
         ]);
         //login new User
         Auth::login($user);
@@ -40,7 +40,19 @@ class AuthController extends Controller
     }
     function postLogin(Request $request)
     {
-        dd($request->all());
+        //val
+        $details = $request->validate([
+            'email' => 'required|email',
+            'password' => 'required',
+        ]);
+        //login
+        if (Auth::attempt($details)) {
+            return redirect()->intended('/')->with('success', 'Zalogowano poprawnie');
+        } else {
+            return back()->withErrors([
+                'loginError' => __('auth.failed')
+            ]);
+        }
     }
     function postLogout()
     {
