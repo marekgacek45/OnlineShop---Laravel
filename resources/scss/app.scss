@@ -1,5 +1,9 @@
 @use 'utilities/global';
 
+
+@use 'components/hamburger.scss';
+@use 'components/navigation.scss';
+
 @use 'pages/home';
 
 @use 'pages/login';

@@ -1,16 +1,39 @@
-<nav>
-    <ul>
-        <li>test</li>
-        <li>test2</li>
-    </ul>
+<nav class="nav">
+    <div class="nav__container">
+        <div style="display:flex">
 
+        
+        <a href="{{route('home')}}">
+            <div class="nav__logo-container">
+                {{-- <img src="../dist/img/logo.png" alt="logo" class="nav__logo-img"> --}}
+              
+                <h2 class="nav__logo-title">Online Shop</h2>
+            </div>
+        </a>
 
-    <a href="{{route('showLogin')}}">Zaloguj się </a>
+        <div class="nav__collapse">
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#" class="nav__link">Kategorie</a>
+                </li>
+                <li class="nav__item"><a href="#"
+                        class="nav__link">Nowości</a></li>
+                <li class="nav__item"><a href="#"
+                        class="nav__link">Kontakt</a></li>
+            </ul>
+        </div>
+    </div>
+<div class="nav__actions">
+    <i class="uil uil-search"></i>
+    <i class="uil uil-user-circle"></i>
+    <i class="uil uil-heart"></i>
+    <i class="uil uil-shopping-cart-alt"></i>
 
-    @auth
-    <form action="{{ route('postLogout') }}" method="post">
-        @csrf
-        <button type="submit">Wyloguj się</button>
-    </form>
-    @endauth
+    <button class="hamburger hamburger--boring nav__hamburger" type="button">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+</div>
+        
+    </div>
 </nav>
