@@ -8,10 +8,12 @@
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 
-<body >
+<body>
     @include('components/navigation')
 
-    @yield('content')
+    <main class="content">
+        @yield('content')
+    </main>
 
     @include('components/footer')
 </body>

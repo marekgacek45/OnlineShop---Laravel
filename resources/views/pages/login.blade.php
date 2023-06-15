@@ -3,41 +3,47 @@
 
 @section('content')
 
-    <main class="login">
-        <div class="login__container">
-            <div class="login__box">
 
-            
+    <div class="login__container">
+        <div class="login__box">
+
+
             <div class="login__form">
-                <h1>Zaloguj się</h1>
+                {{-- <h1>Nazwa firmy</h1> --}}
+                <h2>Zaloguj się</h2>
                 <p>Witamy ponownie</p>
                 <form action="{{ route('postLogin') }}" method="post">
                     @csrf
                     @error('loginError')
-                        <span style="color: red">{{ $message }}</span>
+                        <span class="error-text">{{ $message }}</span>
                     @enderror
-                    <div>
+                    <div class="login__form-box">
                         <label for="email">Email</label>
-                        <input type="email" name="email" id="email" placeholder="Email" value="{{old('email')}}">
+                        <input type="email" name="email" id="email" placeholder="Email" value="{{ old('email') }}">
                         @error('email')
-                        <span style="color: red">{{ $message }}</span>
-                    @enderror
+                            <span class="error-text">{{ $message }}</span>
+                        @enderror
                     </div>
-                    <div>
+                    <div class="login__form-box">
                         <label for="password">Hasło</label>
                         <input type="password" name="password" id="password" placeholder="Hasło">
                         @error('password')
-                        <span style="color: red">{{ $message }}</span>
-                    @enderror
+                            <span class="error-text">{{ $message }}</span>
+                        @enderror
+
                     </div>
-                    <button type="submit">Zaloguj się</button>
+                    <div class="login__form-box">
+                        <button type="submit">Zaloguj się</button>
+
+                    </div>
                 </form>
-                <p>Nie masz konta? <a href="{{ route('showRegister') }}">Stwórz je</a></p>
+                <p class="login__form-register">Nie masz konta? <a href="{{ route('showRegister') }}">Stwórz je!</a></p>
             </div>
-            <div class="login__image">
-                <img src="{{asset('images/login.jpg')}}" alt="">
+            <div class="login__image" style="background-image: url({{asset('images/login.jpg')}})">
+<p>test</p>
             </div>
         </div>
     </div>
-    </main>
+
+
 @endsection

@@ -3,79 +3,117 @@
 @use "../utilities/mixins";
 
 .login {
-    background-color: yellow;
-    height: 85vh;
-    width: 100%;
     &__container {
+        background-color: grey;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
-        width: 100%;
+        // height:100%;
+        padding: 2em;
+        @include mixins.small-devices {
+            height: 100%;
+        }
     }
-    &__box{
-        
+    &__box {
+        background-color: white;
+        display: flex;
+        width: 90%;
+        height:70%;
+        @include mixins.xs-devices {
+            width: 70%;
+            height: 70%;
+        }
+        @include mixins.small-devices {
+            width: 60%;
+            height: 70%;
+        }
+        @include mixins.large-devices {
+            width: 70%;
+            height: 70%;
+        }
+        @include mixins.xxl-devices {
+            width: 60%;
+            height: 70%;
+        }
     }
     &__form {
-       
-        border-radius: 12px;
-        background-color: white;
-        box-shadow: 5px 5px 12px white;
+        width: 100%;
+        padding: 2em;
+        position: relative;
+        text-align: center;
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
-        padding: 1em;
-        width: 90%;
-
+        @include mixins.large-devices {
+            width: 50%;
+        }
+        
         & h1 {
-            padding: 0.3em;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+        & h2 {
+            margin-bottom: 0.5em;
         }
         & p {
-            margin-bottom: 1em;
+            margin-bottom: 0.5em;
+            color: grey;
         }
-
-        & label {
-            margin-left: 0.3em;
-        }
-
-        & input,
-        button {
-            padding: 0.7em;
-            border-radius: 10px;
-            box-shadow: 2px 2px 5px black;
-            outline: none;
-            border: none;
-            margin-bottom: 1em;
-            width: 100%;
-            
-        }
-        & button {
-            margin-top: 1.5em;
-            margin-bottom: 1em;
-            background-color: red;
-            cursor: pointer;
-        }
-    }
-
-    &__image {
-        display: none;
-        @include mixins.medium-devices {
-            display: inline-block;
-
-            border: 1px solid red;
-            width: 90%;
-            height: 45%;
+        &-box {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            flex-direction: column;
+            text-align: left;
 
-            & img {
-                // display: none;
+            & label {
+                font-weight: bold;
+                margin-bottom: 0.3em;
+                margin-top: 1em;
+            }
+            & input {
+                padding: 1em;
+                border: 2px solid grey;
                 width: 100%;
-                height: 100%;
-                object-fit: cover;
+                &:focus{
+                    outline: none;
+                    border: 2px solid black;
+                    box-shadow: 5px 5px 5px 2px rgba(0, 0, 0, 0.2);   
+                }
+            }
+            & button {
+                margin-top: 2em;
+                margin-bottom: 2em;
+                padding: 1em;
+                font-weight: bold;
+                background-color: black;
+                color: white;
+                cursor: pointer;
+                border: none;
+            }
+        }
+        &-register {
+            & a {
+                text-decoration: none;
+                font-weight: bold;
+                color: black;
             }
         }
     }
+    &__image {
+        display: none;
+        @include mixins.large-devices {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-position: center;
+            background-size: cover;
+        }
+    }
+}
+
+.error-text {
+    text-align: center;
+    color: red;
 }
