@@ -9,9 +9,13 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    // function showLogin()
+    // {
+    //     return view('pages/login');
+    // }
     function showLogin()
     {
-        return view('pages/login');
+        return view('pages/log-reg');
     }
     function showRegister()
     {
