@@ -10,4 +10,8 @@ class PagesController extends Controller
     {
         return (view('pages/home'));
     }
+    function userPanel()
+    {
+        return (view('pages/user'));
+    }
 }

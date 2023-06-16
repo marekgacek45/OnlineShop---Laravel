@@ -1,5 +1,5 @@
 @extends('layout/master')
-@section('subtitle', 'Zarejestruj się')
+@section('subtitle', 'login-register')
 @section('content')
 
 <div class="login__container">

@@ -1,4 +1,4 @@
-@extends('layout/master')
+@extends('layout/login-register')
 @section('subtitle', 'Zaloguj się')
 
 @section('content')

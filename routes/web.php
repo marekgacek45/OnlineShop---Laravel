@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Route;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/',[PagesController::class,('home')])->name('home');
+Route::get('/user',[PagesController::class,('userPanel')])->name('userPanel');
 
 //AUTH
 
@@ -25,5 +27,8 @@ Route::get('/login',[AuthController::class,('showLogin')])->name('showLogin')->m
 
 Route::post('/register',[AuthController::class,('postRegister')])->name('postRegister')->middleware('guest');
 Route::post('/login',[AuthController::class,('postLogin')])->name('postLogin')->middleware('guest');
-Route::post('/logout',[AuthController::class,('postLogout')])->name('postLogout')->middleware('auth');
+// Route::post('/logout',[AuthController::class,('postLogout')])->name('postLogout')->middleware('auth');
+Route::get('/logout',[AuthController::class,('postLogout')])->name('postLogout')->middleware('auth');
 
+//ADMIN
+Route::get('/admin',[AdminController::class,('adminPanel')])->name('adminPanel')->middleware('admin');
