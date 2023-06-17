@@ -9,12 +9,15 @@
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 
-<body>
-    {{-- @include('components/navigation') --}}
+<body class="log-reg">
+    @include('components/navigation')
 
-    @yield('content')
+    <main class="content">
 
-    {{-- @include('components/footer') --}}
+        @yield('content')
+    </main>
+
+    @include('components/footer')
 </body>
 
 </html>

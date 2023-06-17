@@ -1,0 +1,136 @@
+@use "../utilities/colors";
+@use "../utilities/variables";
+@use "../utilities/mixins";
+
+.log-reg {
+    min-height: 100vh;
+    background-color: blue;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    padding: 2em;
+}
+
+.form {
+    max-width: 950px;
+    width: 100%;
+    height: 600px;
+    background-color: #fff;
+    // padding: 2em;
+    box-shadow: 0 5px 10px rbga(0, 0, 0, 0, 0.2);
+    position: relative;
+    perspective: 2800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__box {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        @include mixins.medium-devices {
+            width: 50%;
+        }
+       
+        &-title {
+            align-self: start;
+            margin-left: 1em;
+        }
+        &-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            & form {
+                width: 90%;
+            }
+
+            & .form__field {
+                display: flex;
+                flex-direction: column;
+
+                & label {
+                    margin: 0.5em 0;
+                    font-weight: bold;
+                }
+                & input {
+                    border: 2px solid rgb(180, 177, 177);
+                    padding: 0.8em;
+                }
+                & button {
+                    margin-top: 2em;
+                    padding: 0.8em;
+                    background-color: black;
+                    color: white;
+                    border: none;
+                }
+            }
+        }
+        &-link {
+            & label {
+                font-weight: bold;
+                cursor: pointer;
+            }
+        }
+    }
+    &__cover {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 50%;
+        height: 100%;
+        z-index: 100;
+        transform: translateX(0);
+        transition: all 1s ease;
+        transform-origin: left;
+        transform-style: preserve-3d;
+        @include mixins.medium-devices {
+            display: block;
+        }
+
+        &-input {
+            display: none;
+        }
+        & img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &--register{
+        display: none;
+        @include mixins.medium-devices {
+            display: flex;
+        }
+    }
+}
+
+#flip:checked ~ .form__cover {
+    transform: translateX(-100%);
+}
+
+#flip:checked ~ .form--login{
+    display: none;
+    @include mixins.medium-devices {
+        display: flex;
+    }
+}
+#flip:checked ~ .form--register{
+    display: flex;
+    @include mixins.medium-devices {
+        display: flex;
+    }
+}
+
+

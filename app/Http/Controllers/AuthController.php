@@ -15,7 +15,7 @@ class AuthController extends Controller
     // }
     function showLogin()
     {
-        return view('pages/log-reg');
+        return view('pages/login-register-new');
     }
     function showRegister()
     {
