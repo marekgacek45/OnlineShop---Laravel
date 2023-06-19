@@ -41,12 +41,12 @@
             </a>
 
 
-            <a href="" class="sidebar__item">
+            <a href="{{route('admin.product.create')}}" class="sidebar__item">
                 <i class="uil uil-plus-circle"></i>
                 <h3>Dodaj Produkt</h3>
             </a>
 
-            <a href="" class="sidebar__item">
+            <a href="{{route('postLogout')}}" class="sidebar__item">
                 <i class="uil uil-sign-out-alt"></i>
                 <h3>Wyloguj się</h3>
             </a>

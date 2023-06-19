@@ -40,6 +40,8 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     //PRODUCTS
     Route::group(['prefix'=>'products'],function(){
         Route::get('/', [ProductController::class,('index')])->name('admin.products');
+        Route::get('/create', [ProductController::class,('create')])->name('admin.product.create');
+        Route::post('/create', [ProductController::class,('store')])->name('admin.product.store');
        
     });
     //CATEGORIES
@@ -47,5 +49,6 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
         Route::get('/', [CategoryController::class,('index')])->name('admin.categories');
         Route::post('/', [CategoryController::class,('store')])->name('admin.categories.store');
         Route::delete('/{id}', [CategoryController::class,('destroy')])->name('admin.categories.destroy');
+        //zmienić na liczbę pojedyncza
     });
 });
