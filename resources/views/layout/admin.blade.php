@@ -9,12 +9,14 @@
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 
-<body>
-    @include('components/navigation')
+<body class="admin">
+    
+    @include('admin/components/admin-navigation')
+    @include('admin/components/sidebar')
 
-    <main class="content">
+    
         @yield('content')
-    </main>
+    
 
 </body>
 
