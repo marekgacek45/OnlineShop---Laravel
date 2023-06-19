@@ -29,7 +29,7 @@
         </a>
 
 
-        <a href="" class="sidebar__item">
+        <a href="{{route('admin.products')}}" class="sidebar__item">
             <i class="uil uil-clipboard-notes"></i>
             <h3>Produkty</h3>
 

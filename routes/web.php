@@ -33,11 +33,16 @@ Route::post('/login', [AuthController::class, ('postLogin')])->name('postLogin')
 Route::get('/logout', [AuthController::class, ('postLogout')])->name('postLogout')->middleware('auth');
 
 //ADMIN
-// Route::get('/admin', [AdminController::class, ('dashboard')])->name('admin')->middleware('admin');
 
 Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
     Route::get('/', [AdminController::class, ('dashboard')])->name('admin.dashboard');
 
+    //PRODUCTS
+    Route::group(['prefix'=>'products'],function(){
+        Route::get('/', [ProductController::class,('index')])->name('admin.products');
+       
+    });
+    //CATEGORIES
     Route::group(['prefix'=>'categories'],function(){
         Route::get('/', [CategoryController::class,('index')])->name('admin.categories');
         Route::post('/', [CategoryController::class,('store')])->name('admin.categories.store');

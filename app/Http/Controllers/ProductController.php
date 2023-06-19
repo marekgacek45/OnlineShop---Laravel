@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function show (){
-        return 'show';
+    public function index (){
+        return view('admin.pages.products.products');
     }
     public function create (){
         return 'create';
