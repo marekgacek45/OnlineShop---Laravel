@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-    function adminPanel (){
+    function dashboard (){
        return view('admin/pages/dashboard');
     }
 }

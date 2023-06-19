@@ -26,7 +26,7 @@
 
 
 
-            <a href="" class="sidebar__item">
+            <a href="{{route('admin.categories')}}" class="sidebar__item">
                 <i class="uil uil-clipboard"></i>
                 <h3>Kategorie</h3>
             </a>
