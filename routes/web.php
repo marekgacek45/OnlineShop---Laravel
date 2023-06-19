@@ -30,17 +30,22 @@ Route::post('/login', [AuthController::class, 'postLogin'])->name('postLogin')->
 Route::get('/logout', [AuthController::class, 'postLogout'])->name('postLogout')->middleware('auth');
 
 //ADMIN
-Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
-    Route::get('/admin', [AdminController::class, 'dashboard'])->name('admin');
+// Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
+//     Route::get('/', [AdminController::class, 'dashboard'])->name('admin');
 
     // PRODUCTS
-    Route::group(['prefix' => 'products'], function () {
-        Route::get('/', [ProductController::class, 'show'])->name('admin.products');
-        Route::get('/create', [ProductController::class, 'create'])->name('admin.create');
-        Route::post('/create', [ProductController::class, 'store'])->name('admin.store');
-    });
+    // Route::group(['prefix' => 'products'], function () {
+    //     Route::get('/', [ProductController::class, 'show'])->name('admin.products');
+    //     Route::get('/create', [ProductController::class, 'create'])->name('admin.create');
+    //     Route::post('/create', [ProductController::class, 'store'])->name('admin.store');
+    // });
 
-    // CATEGORIES
-    Route::get('/categories', [CategoryController::class, 'index'])->name('admin.categories');
-    Route::post('/categories/create', [CategoryController::class, 'store'])->name('admin.category.store');
+//     // CATEGORIES
+//     Route::get('/categories', [CategoryController::class, 'index'])->name('admin.categories');
+//     Route::post('/categories/create', [CategoryController::class, 'store'])->name('admin.category.store');
+// });
+
+
+Route::group(['prefix' => 'admin',], function (){
+    Route::get('/', [AdminController::class, 'dashboard'])->name('admin');
 });
