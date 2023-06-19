@@ -1,0 +1,104 @@
+
+
+
+@use "../../utilities/colors";
+@use "../../utilities/mixins";
+@use "../../utilities/variables";
+
+.asside {
+    height: 100vh;
+    width: 18rem;
+    background-color: red;
+    left: -100%;
+    position: fixed;
+    transition: .6s ease;
+    @include mixins.medium-devices {
+        left: 0;
+    }
+    
+    &__top {
+        background-color: #fff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1.4rem;
+        &-logo {
+            display: flex;
+            // flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+
+            & img {
+                width: 50px;
+            }
+            & h2 {
+                display: none;
+                @include mixins.medium-devices {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+
+    & .sidebar {
+        background-color: yellow;
+        display: flex;
+        flex-direction: column;
+        height: 86vh;
+        position: relative;
+        top: 3em;
+        &__item {
+            display: flex;
+            margin-left: 2rem;
+            gap: 1rem;
+            align-items: center;
+            position: relative;
+            height: 3.7rem;
+            transition: all .6s ease;
+            & i{
+                transition: all .6s ease;
+                font-size: 1.6rem;
+            }
+            &:hover{
+                color: orange;
+                & i{
+                    margin-left: 1rem;
+                }
+            }
+            &:last-child{
+                position: absolute;
+                bottom: 2rem;
+                width: 100%;
+            }
+        }
+        &__item.active{
+            background-color: blue;
+            color: yellow;
+            margin-left: 0;
+
+            &::before{
+                content: "";
+                width: 6px;
+                height: 100%;
+                background-color: black;
+            }
+            & i{
+                color: black;
+                margin-left: calc(1rem - 3px);
+            }
+        }
+    }
+}
+
+
+
+@keyframes showSidebar{
+    to{
+        left:0
+    }
+}
+
+.show-sidebar{
+    left:0
+}

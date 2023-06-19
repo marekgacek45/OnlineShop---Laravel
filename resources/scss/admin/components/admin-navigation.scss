@@ -1,0 +1,14 @@
+@use "../../utilities/mixins";
+
+.admin-nav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: blue;
+    
+    @include mixins.medium-devices {
+        display: none;
+    }
+}
+
