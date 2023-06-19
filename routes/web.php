@@ -33,7 +33,7 @@ Route::get('/logout', [AuthController::class, ('postLogout')])->name('postLogout
 
 //ADMIN
 Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
-    Route::get('/admin', [AdminController::class, ('adminPanel')])->name('adminPanel');
+    Route::get('/', [AdminController::class, ('adminPanel')])->name('adminPanel');
 
     //PRODUCTS
     Route::group(['prefix' => 'products'], function () {
