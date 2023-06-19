@@ -19,7 +19,11 @@
     </div>
     <div class="sidebar">
 
-        <a href="" class="sidebar__item active">
+        <a href="{{route('home')}}" class="sidebar__item ">
+            <i class="uil uil-home"></i>
+            <h3>Strona główna</h3>
+        </a>
+        <a href="{{route('admin.dashboard')}}" class="sidebar__item active">
             <i class="uil uil-user"></i>
             <h3>Dashboard</h3>
         </a>
@@ -31,7 +35,7 @@
 
 
 
-            <a href="" class="sidebar__item">
+            <a href="{{route('admin.categories')}}" class="sidebar__item">
                 <i class="uil uil-clipboard"></i>
                 <h3>Kategorie</h3>
             </a>

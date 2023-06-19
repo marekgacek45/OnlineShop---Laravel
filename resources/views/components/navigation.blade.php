@@ -24,7 +24,7 @@
             <i class="uil uil-search"></i>
             
 
-            <a href="{{route('admin')}}"><i class="uil uil-apps"></i></a>
+            <a href="{{route('admin.dashboard')}}"><i class="uil uil-apps"></i></a>
            
             @auth
                 <a href="{{ route('userPanel') }}"><i class="uil uil-user-circle"></i></a>

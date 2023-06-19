@@ -6,6 +6,9 @@
 
 @use 'pages/home';
 
+
+@use 'layout/admin.scss';
+
 // @use 'pages/login';
 // @use 'pages/log-reg';
 @use 'pages/log-reg-new';
@@ -13,4 +16,6 @@
 
 
 @use'admin/components/admin-navigation.scss';
-@use'admin/components/sidebar.scss'
+@use'admin/components/sidebar.scss';
+@use'admin/pages/categories';
+

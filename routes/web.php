@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -32,4 +33,12 @@ Route::post('/login', [AuthController::class, ('postLogin')])->name('postLogin')
 Route::get('/logout', [AuthController::class, ('postLogout')])->name('postLogout')->middleware('auth');
 
 //ADMIN
-Route::get('/admin', [AdminController::class, ('dashboard')])->name('admin')->middleware('admin');
+// Route::get('/admin', [AdminController::class, ('dashboard')])->name('admin')->middleware('admin');
+
+Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
+    Route::get('/', [AdminController::class, ('dashboard')])->name('admin.dashboard');
+
+    Route::group(['prefix'=>'categories'],function(){
+        Route::get('/', [CategoryController::class,('index')])->name('admin.categories');
+    });
+});
