@@ -40,5 +40,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
 
     Route::group(['prefix'=>'categories'],function(){
         Route::get('/', [CategoryController::class,('index')])->name('admin.categories');
+        Route::post('/', [CategoryController::class,('store')])->name('admin.categories.store');
+        Route::delete('/{id}', [CategoryController::class,('destroy')])->name('admin.categories.destroy');
     });
 });
