@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Color extends Model
 {
+    protected $guarded = [];
+
     use HasFactory;
 
     public function products(){

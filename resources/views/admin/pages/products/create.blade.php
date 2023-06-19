@@ -35,6 +35,13 @@
                         </select>
                     </div>
                     <div class="form__field">
+                        <label for="colors">Kolor</label>
+                        @foreach ($colors as $color)
+                           <input type="checkbox" name="colors[]" id="{{$color->name}}" value="{{$color->id}}">
+                           <span style="width:30px;height:30px;background-color:{{$color->code}}"></span>
+                        @endforeach
+                    </div>
+                    <div class="form__field">
                         <label for="price">Cena</label>
                         <input type="number" name="price" id="price" placeholder="Cena">
                         @error('price')

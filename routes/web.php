@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\AdminController;
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ColorController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\ProductController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,5 +51,12 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
         Route::post('/', [CategoryController::class,('store')])->name('admin.categories.store');
         Route::delete('/{id}', [CategoryController::class,('destroy')])->name('admin.categories.destroy');
         //zmienić na liczbę pojedyncza
+    });
+    //COLORS
+    Route::group(['prefix'=>'colors'],function(){
+        Route::get('/', [ColorController::class,('index')])->name('admin.colors');
+        Route::post('/', [ColorController::class,('store')])->name('admin.color.store');
+        Route::delete('/{id}', [ColorController::class,('destroy')])->name('admin.color.destroy');
+        
     });
 });
