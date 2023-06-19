@@ -32,14 +32,4 @@ Route::post('/login', [AuthController::class, ('postLogin')])->name('postLogin')
 Route::get('/logout', [AuthController::class, ('postLogout')])->name('postLogout')->middleware('auth');
 
 //ADMIN
-Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function () {
-    Route::get('/', [AdminController::class, ('adminPanel')])->name('adminPanel');
-
-    //PRODUCTS
-    Route::group(['prefix' => 'products'], function () {
-        Route::get('/', [ProductController::class, ('show')])->name('adminPanel.products');
-        Route::get('/create', [ProductController::class, ('create')])->name('adminPanel.create');
-        Route::post('/create', [ProductController::class, ('store')])->name('adminPanel.store');
-    });
-
-});
+Route::get('/adminPanel', [AdminController::class, ('dashboard')])->name('admin')->middleware('admin');
