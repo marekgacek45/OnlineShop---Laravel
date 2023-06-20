@@ -29,7 +29,7 @@
         </a>
 
 
-        <a href="" class="sidebar__item">
+        <a href="{{route('admin.products')}}" class="sidebar__item">
             <i class="uil uil-clipboard-notes"></i>
             <h3>Produkty</h3>
 
@@ -39,14 +39,18 @@
                 <i class="uil uil-clipboard"></i>
                 <h3>Kategorie</h3>
             </a>
+            <a href="{{route('admin.colors')}}" class="sidebar__item">
+                <i class="uil uil-palette"></i>
+                <h3>Kolory</h3>
+            </a>
 
 
-            <a href="" class="sidebar__item">
+            <a href="{{route('admin.product.create')}}" class="sidebar__item">
                 <i class="uil uil-plus-circle"></i>
                 <h3>Dodaj Produkt</h3>
             </a>
 
-            <a href="" class="sidebar__item">
+            <a href="{{route('postLogout')}}" class="sidebar__item">
                 <i class="uil uil-sign-out-alt"></i>
                 <h3>Wyloguj się</h3>
             </a>
