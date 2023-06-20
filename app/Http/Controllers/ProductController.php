@@ -11,7 +11,8 @@ class ProductController extends Controller
 {
     public function index()
     {
-        return view('admin.pages.products.index');
+        $products = Product::with('category')->orderBy('created_at','desc')->get();
+        return view('admin.pages.products.index',['products'=>$products]);
     }
 
     public function create()
@@ -42,8 +43,8 @@ class ProductController extends Controller
             'thumbnail' => $image_name,
         ]);
 
+        $product->save();
         $product->colors()->attach($request->colors);
-        
 
         return back()->with('success', 'Produkt dodany');
     }
