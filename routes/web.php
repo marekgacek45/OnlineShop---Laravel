@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ColorController;
 use App\Http\Controllers\PagesController;
@@ -51,6 +52,13 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
         Route::post('/', [CategoryController::class,('store')])->name('admin.categories.store');
         Route::delete('/{id}', [CategoryController::class,('destroy')])->name('admin.categories.destroy');
         //zmienić na liczbę pojedyncza
+    });
+    //CATEGORIES
+    Route::group(['prefix'=>'teams'],function(){
+        Route::get('/', [TeamController::class,('index')])->name('admin.teams');
+        Route::post('/', [TeamController::class,('store')])->name('admin.team.store');
+        Route::delete('/{id}', [TeamController::class,('destroy')])->name('admin.team.destroy');
+        
     });
     //COLORS
     Route::group(['prefix'=>'colors'],function(){

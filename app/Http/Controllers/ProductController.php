@@ -32,7 +32,7 @@ class ProductController extends Controller
             'thumbnail' => 'required|image|mimes:jpg,png,jpeg,webp|max:5000',
         ]);
 
-        $image_name = 'products/' . time() . rand(0, 99999) . "." . $request->thumbnail->getClientOriginalExtension();
+        $image_name = 'teams_logos/' . time() . rand(0, 99999) . "." . $request->thumbnail->getClientOriginalExtension();
         $request->thumbnail->storeAs('public', $image_name);
 
         $product = new Product([
