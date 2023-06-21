@@ -47,6 +47,10 @@
                 <i class="uil uil-palette"></i>
                 <h3>Kolory</h3>
             </a>
+            <a href="{{route('admin.sizes')}}" class="sidebar__item">
+                <i class="uil uil-palette"></i>
+                <h3>Rozmiary</h3>
+            </a>
 
 
             <a href="{{route('admin.product.create')}}" class="sidebar__item">

@@ -14,7 +14,7 @@
                 <th scope="col">Cena</th>
                 <th scope="col">Kategoria</th>
                 <th scope="col">Drużyna</th>
-                <th scope="col">Kolory</th>
+                <th scope="col">Rozmiar</th>
                 <th scope="col">Akcje</th>
               </tr>
             </thead>
@@ -25,7 +25,8 @@
                         <td>{{$product->price}}</td>
                         <td>{{$product->category->name}}</td>
                         <td>{{$product->team->name}}</td>
-                        <td>-</td>
+                        <td>{{$product->sizes}}</td>
+                        <td>{{$product->colors}}</td>
                         <td>-</td>
                     </tr>
                 @endforeach

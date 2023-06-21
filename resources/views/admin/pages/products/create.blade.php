@@ -52,6 +52,14 @@
                         @endforeach
                     </div>
                     <div class="form__field">
+                        <label for="colors">Rozmiar</label>
+                        @foreach ($sizes as $size)
+                        <label for="sizes[]">{{$size->name}}</label>
+                           <input type="checkbox" name="sizes[]" id="{{$color->name}}" value="{{$color->id}}">
+                           
+                        @endforeach
+                    </div>
+                    <div class="form__field">
                         <label for="price">Cena</label>
                         <input type="number" name="price" id="price" placeholder="Cena">
                         @error('price')
