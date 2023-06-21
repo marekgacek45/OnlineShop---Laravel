@@ -2,155 +2,23 @@
 @use "../utilities/mixins";
 @use "../utilities/variables";
 
-// .nav {
-//     position: sticky;
-//     top: 0;
-//     background: red;
-
-//     transition: 0.6s;
-//     z-index: 1000;
-//     &__container {
-//         display: flex;
-//         justify-content: space-between;
-//         align-items: center;
-//         padding: 1em;
-//         margin: 0 auto;
-//         width: 100%;
-//         max-width: 1800px;
-//         @include mixins.xs-devices {
-//             padding: 1em 3em;
-//         }
-//     }
-//     &__logo {
-//         &-container {
-//             display: flex;
-//             justify-content: center;
-//             align-items: center;
-//         }
-//         &-img {
-//             width: 60px;
-//             @include mixins.xs-devices {
-//                 width: 90px;
-//             }
-//         }
-//         &-title {
-//             margin-left: 0.5em;
-//             font-size: 1rem;
-//             text-align: center;
-//             text-transform: uppercase;
-//             color: black;
-//             @include mixins.xs-devices {
-//                 margin-left: 1em;
-//                 font-size: 1.2rem;
-//             }
-//         }
-//     }
-//     &__collapse {
-//         position: fixed;
-//         display: flex;
-//         justify-content: center;
-//         top: -400px;
-//         left: 0;
-//         width: 100%;
-//         background-color: red;
-//         transition: all 0.8s;
-
-//         @include mixins.large-devices {
-//             position: relative;
-//             display: flex;
-//             top: 0;
-//             width: auto;
-//             background: none;
-//         }
-//     }
-//     &__list {
-//         display: flex;
-//         flex-direction: column;
-//         justify-content: space-evenly;
-//         align-items: center;
-//         margin: 0;
-//         list-style: none;
-//         @include mixins.large-devices {
-//             flex-direction: row;
-//             justify-content: center;
-//             align-items: center;
-//             padding: 0;
-//         }
-//     }
-//     &__item {
-//         margin: 0.5em;
-//         font-size: 1.2rem;
-
-//         @include mixins.large-devices {
-//             margin: 0 1em;
-//         }
-//     }
-//     &__link {
-//         position: relative;
-//         font-weight: bold;
-//         color: black;
-//         transition: 0.3s;
-//         &::before,
-//         &::after {
-//             content: "";
-//             position: absolute;
-//             bottom: -5px;
-//             width: 0;
-//             border-bottom: 3px solid red;
-//             transition: 0.3s;
-//         }
-//         &::before {
-//             right: 50%;
-//         }
-//         &::after {
-//             left: 50%;
-//         }
-//         &:hover::before,
-//         &:hover::after {
-//             width: 50%;
-//         }
-//     }
-//     &__actions {
-//         & i {
-//             font-size: 2rem;
-//             margin: .5em;
-// 			cursor:pointer;
-//         }
-//     }
-
-//     &__btn {
-//         display: none;
-//         @include mixins.large-devices {
-//             display: block;
-//         }
-//     }
-//     &__hamburger {
-//         z-index: 100;
-//         @include mixins.large-devices {
-//             display: none;
-//         }
-//     }
-// }
-
-// .mobile-active {
-//     top: 80px;
-// }
-
 .navbar {
     width: 100%;
     height: 60px;
     max-width: 1200px;
     margin: 0 auto;
-   
+    padding: 0 1em;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    @include mixins.small-devices {
+       padding: 0 2em;
+    };
     &__logo {
         & a {
             font-size: 1.5rem;
             font-weight: bold;
             color: colors.$dark-font;
-            padding-left: 1rem;
         }
     }
     &__links,
@@ -170,7 +38,8 @@
     }
     &__hamburger {
         display: inline-block;
-       
+        padding: 0;
+
         @include mixins.large-devices {
             display: none;
         }
@@ -178,8 +47,8 @@
     &__dropdown-menu {
         position: absolute;
         left: 2rem;
-            right: 2rem;
-            width: unset;
+        right: 2rem;
+        width: unset;
         // width: 300px;
         top: 60px;
         height: 0;
@@ -193,8 +62,7 @@
         @include mixins.small-devices {
             left: auto;
             right: 2rem;
-            width: 300px
-            
+            width: 300px;
         }
         @include mixins.large-devices {
             display: none;

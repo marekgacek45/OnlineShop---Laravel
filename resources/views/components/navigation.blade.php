@@ -48,16 +48,23 @@
 
 <nav class="navbar">
     <div class="navbar__logo">
-        <a href="{{ route('home') }}">TrendSetter</a>
+        <a href="{{ route('home') }}">IceThreads</a>
     </div>
     <ul class="navbar__links">
-        <li><a href=""></a>Item1</li>
-        <li><a href=""></a>Item2</li>
-        <li><a href=""></a>Item3</li>
+        <li><a href=""></a>Nowości</li>
+        <li><a href=""></a>Koszulki</li>
+        <li><a href=""></a>Czapki</li>
+        <li><a href=""></a>Drużyny</li>
     </ul>
     <ul class="navbar__actions">
         <li><i class="uil uil-heart"></i></li>
         <li><i class="uil uil-shopping-cart-alt"></i></li>
+        @auth
+        <a href="{{ route('userPanel') }}"><i class="uil uil-user-circle"></i></a>
+        @else
+        <a href="{{ route('showLogin') }}"><i class="uil uil-user-circle"></i></a>
+        @endauth
+        <a href="{{route('admin.dashboard')}}"><i class="uil uil-apps"></i></a>
     </ul>
     <button class="hamburger hamburger--boring navbar__hamburger" type="button">
         <span class="hamburger-box">
@@ -66,12 +73,19 @@
     </button>
 
     <div class="navbar__dropdown-menu">
-        <li><a href=""></a>Item1</li>
-        <li><a href=""></a>Item2</li>
-        <li><a href=""></a>Item3</li>
+        <li><a href=""></a>Nowości</li>
+        <li><a href=""></a>Koszulki</li>
+        <li><a href=""></a>Czapki</li>
+        <li><a href=""></a>Drużyny</li>
         <div class="navbar__dropdown-menu__actions">
             <li><i class="uil uil-heart"></i></li>
             <li><i class="uil uil-shopping-cart-alt"></i></li>
+            @auth
+            <li><a href="{{ route('userPanel') }}"><i class="uil uil-user-circle"></i></a></li>
+            @else
+            <li><a href="{{ route('showLogin') }}"><i class="uil uil-user-circle"></i></a></li>
+            @endauth
+            <li><a href="{{route('admin.dashboard')}}"><i class="uil uil-apps"></i></a></li>
         </div>
     </div>
 </nav>
