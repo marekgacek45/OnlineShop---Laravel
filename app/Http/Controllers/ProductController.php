@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Color;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -18,8 +19,9 @@ class ProductController extends Controller
     public function create()
     {
         $categories = Category::all();
+        $teams = Team::all();
         $colors = Color::all();
-        return view('admin.pages.products.create', ['categories' => $categories, 'colors' => $colors]);
+        return view('admin.pages.products.create', ['categories' => $categories, 'colors' => $colors,'teams'=>$teams]);
     }
 
     public function store(Request $request)
@@ -28,6 +30,7 @@ class ProductController extends Controller
             'title' => 'required|max:255',
             'price' => 'required',
             'category_id' => 'required',
+            'team_id' => 'required',
             'colors' => 'required',
             'thumbnail' => 'required|image|mimes:jpg,png,jpeg,webp|max:5000',
         ]);
@@ -39,6 +42,7 @@ class ProductController extends Controller
             'title' => $request->title,
             'price' => $request->price,
             'category_id' => $request->category_id,
+            'team_id' => $request->team_id,
             'description' => $request->description,
             'thumbnail' => $image_name,
         ]);
