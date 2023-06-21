@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Size;
 use App\Models\Team;
 use App\Models\Color;
 use App\Models\Product;
@@ -20,8 +21,9 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $colors = Color::all();
+        $sizes = Size::all();
         $teams = Team::all();
-        return view('admin.pages.products.create', ['categories' => $categories, 'colors' => $colors,'teams'=>$teams]);
+        return view('admin.pages.products.create', ['categories' => $categories, 'colors' => $colors,'teams'=>$teams,'sizes'=>$sizes]);
     }
 
     public function store(Request $request)
@@ -32,6 +34,7 @@ class ProductController extends Controller
             'category_id' => 'required',
             'team_id' => 'required',
             'colors' => 'required',
+            'sizes' => 'required',
             'thumbnail' => 'required|image|mimes:jpg,png,jpeg,webp|max:5000',
         ]);
 
@@ -49,6 +52,7 @@ class ProductController extends Controller
 
         $product->save();
         $product->colors()->attach($request->colors);
+        $product->sizes()->attach($request->sizes);
 
         return back()->with('success', 'Produkt dodany');
     }

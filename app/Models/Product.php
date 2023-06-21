@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Size;
 use App\Models\Team;
 use App\Models\Color;
 use App\Models\Category;
@@ -22,5 +23,8 @@ class Product extends Model
     }
     public function colors(){
         return $this->belongsToMany(Color::class);
+    }
+    public function sizes(){
+        return $this->belongsToMany(Size::class);
     }
 }

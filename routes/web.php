@@ -3,6 +3,7 @@
 use App\Models\Team;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SizeController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ColorController;
@@ -54,17 +55,25 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
         Route::delete('/{id}', [CategoryController::class,('destroy')])->name('admin.categories.destroy');
         //zmienić na liczbę pojedyncza
     });
+    //TEAMS
     Route::group(['prefix'=>'teams'],function(){
         Route::get('/', [TeamController::class,('index')])->name('admin.teams');
         Route::post('/', [TeamController::class,('store')])->name('admin.team.store');
         Route::delete('/{id}', [TeamController::class,('destroy')])->name('admin.team.destroy');
-        //zmienić na liczbę pojedyncza
+        
     });
     //COLORS
     Route::group(['prefix'=>'colors'],function(){
         Route::get('/', [ColorController::class,('index')])->name('admin.colors');
         Route::post('/', [ColorController::class,('store')])->name('admin.color.store');
         Route::delete('/{id}', [ColorController::class,('destroy')])->name('admin.color.destroy');
+        
+    });
+    //SIZES
+    Route::group(['prefix'=>'sizes'],function(){
+        Route::get('/', [SizeController::class,('index')])->name('admin.sizes');
+        Route::post('/', [SizeController::class,('store')])->name('admin.size.store');
+        Route::delete('/{id}', [SizeController::class,('destroy')])->name('admin.size.destroy');
         
     });
 });
