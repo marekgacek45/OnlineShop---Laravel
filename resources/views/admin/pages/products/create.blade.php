@@ -35,6 +35,16 @@
                         </select>
                     </div>
                     <div class="form__field">
+                        <label for="team_id">Drużyna</label>
+                        <select name="team_id" id="team_id">
+                            <option value="" selected disabled>-- Wybierz Drużynę</option>
+                            @foreach ($teams as $team)
+                                <option value="{{ $team->id }}"
+                                    {{ old('team_id') == $team->id ? 'selected' : '' }}><img src="{{asset('storage/'. $team->logo)}} " alt="" style="width:30px"> {{$team->name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="form__field">
                         <label for="colors">Kolor</label>
                         @foreach ($colors as $color)
                            <input type="checkbox" name="colors[]" id="{{$color->name}}" value="{{$color->id}}">

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Team;
 use App\Models\Color;
 use App\Models\Category;
 use Illuminate\Database\Eloquent\Model;
@@ -15,6 +16,9 @@ class Product extends Model
 
     public function category(){
         return $this->belongsTo(Category::class);
+    }
+    public function team(){
+        return $this->belongsTo(Team::class);
     }
     public function colors(){
         return $this->belongsToMany(Color::class);

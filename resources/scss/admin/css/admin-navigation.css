@@ -1,0 +1,12 @@
+.admin-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: blue;
+}
+@media (min-width: 768px) {
+  .admin-nav {
+    display: none;
+  }
+}/*# sourceMappingURL=admin-navigation.css.map */

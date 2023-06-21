@@ -39,6 +39,10 @@
                 <i class="uil uil-clipboard"></i>
                 <h3>Kategorie</h3>
             </a>
+            <a href="{{route('admin.teams')}}" class="sidebar__item">
+                <i class="uil uil-clipboard"></i>
+                <h3>Drużyny</h3>
+            </a>
             <a href="{{route('admin.colors')}}" class="sidebar__item">
                 <i class="uil uil-palette"></i>
                 <h3>Kolory</h3>

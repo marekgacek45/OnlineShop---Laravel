@@ -13,6 +13,7 @@
                 <th scope="col">Produkt</th>
                 <th scope="col">Cena</th>
                 <th scope="col">Kategoria</th>
+                <th scope="col">Drużyna</th>
                 <th scope="col">Kolory</th>
                 <th scope="col">Akcje</th>
               </tr>
@@ -23,6 +24,7 @@
                         <td><img src="{{asset('storage/'. $product->thumbnail)}}" alt="" style="width:50px"> {{$product->title}}</td>
                         <td>{{$product->price}}</td>
                         <td>{{$product->category->name}}</td>
+                        <td>{{$product->team->name}}</td>
                         <td>-</td>
                         <td>-</td>
                     </tr>
