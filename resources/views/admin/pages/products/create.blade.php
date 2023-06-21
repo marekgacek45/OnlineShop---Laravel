@@ -7,10 +7,10 @@
 
 
 
-        <div class="form__box form--login">
+        <div class="form__box form--login" >
             <div class="form__box-title">
             </div>
-            <div class="form__box-content">
+            <div class="form__box-content" >
                 <h2>Dodaj nowy produkt</h2>
                 <form action="{{ route('admin.product.store') }}" method="post" enctype="multipart/form-data">
                     @csrf
@@ -56,9 +56,16 @@
                         @foreach ($sizes as $size)
                         <label for="sizes[]">{{$size->name}}</label>
                            <input type="checkbox" name="sizes[]" id="{{$color->name}}" value="{{$color->id}}">
-                           
                         @endforeach
                     </div>
+                    <div class="form__field">
+                        <label for="colors">Płeć</label>
+                        @foreach ($genders as $gender)
+                        <label for="gender[]">{{$gender->name}}</label>
+                           <input type="checkbox" name="genders[]" id="{{$gender->name}}" value="{{$gender->id}}">
+                        @endforeach
+                    </div>
+                    
                     <div class="form__field">
                         <label for="price">Cena</label>
                         <input type="number" name="price" id="price" placeholder="Cena">

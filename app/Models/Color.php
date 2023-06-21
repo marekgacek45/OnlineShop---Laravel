@@ -8,9 +8,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Color extends Model
 {
-    protected $guarded = [];
-
+    
     use HasFactory;
+    protected $guarded = [];
 
     public function products(){
         return $this->belongsToMany(Product::class);

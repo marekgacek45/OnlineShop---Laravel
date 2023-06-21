@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\Size;
 use App\Models\Team;
 use App\Models\Color;
+use App\Models\Gender;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -19,11 +21,14 @@ class ProductController extends Controller
 
     public function create()
     {
+        
         $categories = Category::all();
         $teams = Team::all();
         $sizes = Size::all();
         $colors = Color::all();
-        return view('admin.pages.products.create', ['categories' => $categories, 'colors' => $colors,'teams'=>$teams,'sizes'=>$sizes]);
+        $genders = Gender::all();
+    
+        return view('admin.pages.products.create', ['categories' => $categories, 'colors' => $colors,'teams'=>$teams,'sizes'=>$sizes,'genders'=>$genders]);
     }
 
     public function store(Request $request)
@@ -34,7 +39,9 @@ class ProductController extends Controller
             'category_id' => 'required',
             'team_id' => 'required',
             'colors' => 'required',
+            'genders' => 'required',
             'sizes' => 'required',
+            
             'thumbnail' => 'required|image|mimes:jpg,png,jpeg,webp|max:5000',
         ]);
 
@@ -53,6 +60,8 @@ class ProductController extends Controller
         $product->save(); 
         $product->sizes()->attach($request->sizes);
         $product->colors()->attach($request->colors);
+        $product->genders()->attach($request->genders);
+       
 
         return back()->with('success', 'Produkt dodany');
     }
