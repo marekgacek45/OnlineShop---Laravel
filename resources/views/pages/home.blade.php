@@ -4,4 +4,7 @@
 @section('content')
     
 <p>strona główna</p>
+@foreach ($sizes as $size)
+    <p>{{$size->name}}</p>
+@endforeach
 @endsection

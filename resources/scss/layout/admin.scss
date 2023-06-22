@@ -1,4 +1,22 @@
+@use "../utilities/colors";
+@use "../utilities/mixins";
+@use "../utilities/variables";
+
 .admin{
-    display: flex;
-   
+    width: 100vw;
+    height: 100vh;
+    background-color: colors.$light-bgc;
+    font-size: 0.88rem;
+    user-select: none;
+    overflow-x: hidden;
+   &__container{
+    display: grid;
+    width: 96%;
+    margin: 0 auto;
+    gap:1.8rem;
+    grid-template-columns: 14rem auto 23rem;
+   }
+   &__main{
+margin-top: 1.4rem;
+   }
 }

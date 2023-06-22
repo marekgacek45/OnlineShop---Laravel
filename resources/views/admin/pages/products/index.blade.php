@@ -25,8 +25,10 @@
                         <td>{{$product->price}}</td>
                         <td>{{$product->category->name}}</td>
                         <td>{{$product->team->name}}</td>
-                        <td>{{$product->sizes}}</td>
-                        <td>{{$product->colors}}</td>
+                        <td>@foreach ($product->sizes as $item)
+                            <p>{{$item->name}}</p>
+                        @endforeach</td>
+                        <td>-</td>
                         <td>-</td>
                     </tr>
                 @endforeach

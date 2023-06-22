@@ -6,8 +6,7 @@
 <aside class="asside">
     <div class="asside__top">
         <div class="asside__top-logo">
-            <img src="{{ asset('images/logo.png') }}" alt="">
-            <h2>FASHION DESIGN</h2>
+            <h2>IceThreads</h2>
         </div>
         <div class="asside__top-hamburger">
             <button class="hamburger hamburger--boring sidebar__hamburger" type="button">

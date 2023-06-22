@@ -10,14 +10,17 @@
 </head>
 
 <body class="admin">
-    
-    @include('admin/components/admin-navigation')
-    @include('admin/components/sidebar')
+    <div class="admin__container">
 
-    
-        @yield('content')
-    
+        @include('admin/components/sidebar')
+        <main class="admin__main">
+            @yield('content')
 
+        </main>
+
+
+
+    </div>
 </body>
 
 </html>

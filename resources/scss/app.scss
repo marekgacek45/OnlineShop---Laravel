@@ -14,10 +14,11 @@
 @use 'pages/log-reg-new';
 
 
-
+// ADMIN
 @use'admin/components/admin-navigation.scss';
 @use'admin/components/sidebar.scss';
 @use'admin/pages/categories';
+@use'admin/pages/dashboard.scss';
 
 @import'../../node_modules/bootstrap/scss/functions';
 @import'../../node_modules/bootstrap/scss/variables';

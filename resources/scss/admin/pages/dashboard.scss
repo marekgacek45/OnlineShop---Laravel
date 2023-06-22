@@ -1,0 +1,124 @@
+@use "../../utilities/colors";
+@use "../../utilities/mixins";
+@use "../../utilities/variables";
+
+.dashboard {
+    &__date {
+        display: inline-block;
+        border-radius: variables.$border-radius;
+        background-color: colors.$white-bgc;
+        margin-top: 1rem;
+        padding: 0.5rem 1.6rem;
+        & input {
+            background-color: transparent;
+            border: none;
+        }
+    }
+    &__insights {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.6rem;
+        &-box {
+            background-color: colors.$white-bgc;
+            margin-top: 1rem;
+            padding: 2em;
+            border-radius: variables.$border-radius;
+            box-shadow: variables.$box-shadow;
+            transition: all variables.$transition;
+            &:hover {
+                box-shadow: none;
+            }
+            & i {
+                background-color: colors.$grey-bgc;
+                padding: .5rem;
+                border-radius: 50%;
+                color: colors.$light-font;
+                font-size: 1.5rem;
+            }
+            & .middle {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin: 1em 0 2em 0;
+                & h3 {
+                    margin: 1rem 0 0.6rem;
+                    font-size: 1rem;
+                }
+                & .progress {
+                    position: relative;
+                    width: 92px;
+                    height: 92px;
+                    border-radius: 50%;
+                    & .number{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 100%;
+                        width: 100%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
+
+                & svg {
+                    width: 7rem;
+                    height: 7rem;
+                    & circle {
+                        fill: none;
+                        stroke: colors.$color-primary;
+                        stroke-width: 14px;
+                        stroke-linecap: round;
+                        transform: translate(5px, 5px);
+                        
+                    }
+                }
+            }
+            &--sales {
+                & i{
+                    background-color: colors.$color-primary;
+                }
+                & .middle {
+                    & .progress {
+                        & svg {
+                            & circle {
+                                stroke-dasharray: 110;
+                                stroke-dashoffset: 92;
+                            }
+                        }
+                    }
+                }
+            }
+            &--expenses {
+                & i{
+                    background-color: colors.$color-danger;
+                }
+                & .middle {
+                    & .progress {
+                        & svg {
+                            & circle {
+                                stroke-dasharray: 80;
+                                stroke-dashoffset: 20;
+                            }
+                        }
+                    }
+                }
+            }
+            &--income {
+                & i{
+                    background-color: colors.$color-success;
+                }
+                & .middle {
+                    & .progress {
+                        & svg {
+                            & circle {
+                                stroke-dasharray: 2200;
+                                stroke-dashoffset: -30;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
