@@ -16,8 +16,12 @@
     }
     &__insights {
         display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.6rem;
+        grid-template-columns: 1fr;
+        gap:0;
+        @include mixins.xxl-devices {
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.6rem;
+        }
         &-box {
             background-color: colors.$white-bgc;
             margin-top: 1rem;
@@ -30,7 +34,7 @@
             }
             & i {
                 background-color: colors.$grey-bgc;
-                padding: .5rem;
+                padding: 0.5rem;
                 border-radius: 50%;
                 color: colors.$light-font;
                 font-size: 1.5rem;
@@ -49,7 +53,7 @@
                     width: 92px;
                     height: 92px;
                     border-radius: 50%;
-                    & .number{
+                    & .number {
                         position: absolute;
                         top: 0;
                         left: 0;
@@ -70,12 +74,11 @@
                         stroke-width: 14px;
                         stroke-linecap: round;
                         transform: translate(5px, 5px);
-                        
                     }
                 }
             }
             &--sales {
-                & i{
+                & i {
                     background-color: colors.$color-primary;
                 }
                 & .middle {
@@ -90,7 +93,7 @@
                 }
             }
             &--expenses {
-                & i{
+                & i {
                     background-color: colors.$color-danger;
                 }
                 & .middle {
@@ -105,7 +108,7 @@
                 }
             }
             &--income {
-                & i{
+                & i {
                     background-color: colors.$color-success;
                 }
                 & .middle {
@@ -116,6 +119,184 @@
                                 stroke-dashoffset: -30;
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+    &__orders {
+        width: 94%;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 2rem 0 0 8.8rem;
+        @include mixins.xxl-devices {
+            width: auto;
+            position: relative;
+            left: 0;
+            transform: translateX(0);
+            margin: 2rem 0 0 0 ;
+
+        }
+        & h2 {
+            margin-bottom: 0.8rem;
+        }
+        & table {
+            background-color: colors.$white-bgc;
+            width: 83vw;
+            border-radius: variables.$border-radius;
+            padding: 2em;
+            box-shadow: variables.$box-shadow;
+            transition: box-shadow variables.$transition;
+            @include mixins.xxl-devices{
+                width: 100%;  
+            }
+            & thead tr td:last-child, thead tr td:first-child{
+                display: none;
+                @include mixins.xxl-devices{
+                    display: inline-block;
+                }
+            }
+            & tbody tr td:last-child, tbody tr td:first-child{
+                display: none;
+                @include mixins.xxl-devices{
+                    display: inline-block;
+                }
+            }
+            &:hover {
+                box-shadow: none;
+            }
+            & tbody tr {
+                &:last-child td {
+                    border-bottom: none;
+                }
+            }
+            & tbody td {
+                height: 2.8rem;
+                border-bottom: 1px solid colors.$light-muted-font;
+            }
+        }
+        & a {
+            text-align: center;
+            display: block;
+            margin: 1rem auto;
+        }
+    }
+}
+
+.right {
+    margin: 1.4rem;
+    & .top {
+        display: flex;
+        justify-content: flex-end;
+        gap: 2rem;
+        & .dashboard__hamburger {
+            display: none;
+        }
+        & .theme-toggler {
+            background-color: colors.$white-bgc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 1.6rem;
+            width: 4.2rem;
+            border-radius: variables.$border-radius;
+            cursor: pointer;
+            & i {
+                font-size: 1.2rem;
+                width: 50%;
+                height: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                &.active {
+                    background-color: colors.$color-primary;
+                    color: white;
+                    border-radius: variables.$border-radius;
+                }
+            }
+        }
+        & .profile {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            text-align: right;
+        }
+    }
+    & .recent-updates {
+        margin-top: 1rem;
+        & h2 {
+            margin-bottom: 0.8rem;
+        }
+        & .updates {
+            background-color: colors.$white-bgc;
+            padding: 2em;
+            border-radius: variables.$border-radius;
+            box-shadow: variables.$box-shadow;
+            transition: all variables.$transition;
+            &:hover{
+                box-shadow: none;
+            }
+            & .update{
+                display: grid;
+                grid-template-columns: 2.6rem auto;
+                gap: 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+    }
+    & .sales-analytics{
+        margin-top: 2rem;
+        & h2{
+            margin-bottom: .8rem;
+        }
+        & .item{
+            background-color: colors.$white-bgc;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: .7rem;
+            padding:1.4rem 2rem;
+            border-radius: variables.$border-radius;
+            box-shadow: variables.$box-shadow;
+            transition:all variables.$transition;
+            &:hover{
+                box-shadow: none;
+            }
+            & .right{
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+                margin: 0;
+                width: 100%;
+            }
+            & .icon{
+                padding: .6rem;
+                color: colors.$light-font;
+                border-radius: 50%;
+                background-color: colors.$color-primary;
+                display: flex;
+            }
+            &.offline{
+                background-color: colors.$color-danger;
+            }
+            &.online{
+                background-color: colors.$color-success;
+            }
+            &.add-product{
+                background: transparent;
+                border:2px dashed colors.$color-primary;
+                color:colors.$color-primary;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                & .button{
+                    display: flex;
+                    align-items: center;
+                    gap: .6rem;
+                    & h3{
+                        font-weight: 500;
                     }
                 }
             }

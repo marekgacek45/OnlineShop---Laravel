@@ -8,7 +8,7 @@
     // width: 18rem;
     // background-color: colors.$grey-bgc;
     left: -100%;
-    position: fixed;
+    position: fixed;//tu i tu
     transition: .6s ease;
     @include mixins.medium-devices {
         left: 0;
@@ -42,6 +42,10 @@
         height: 86vh;
         position: relative;
         top: 3em;
+        width: 5.6rem;
+        @include mixins.xxl-devices {
+            width: auto;
+        }
         &__item {
             display: flex;
             margin-left: 2rem;
@@ -56,7 +60,11 @@
                 font-size: 1.6rem;
             }
             & h3{
-                font-weight: 500;
+                display: none;
+                @include mixins.xxl-devices {
+                    display: inline-block;
+                    font-weight: 500;
+                }
             }
             &:hover{
                 

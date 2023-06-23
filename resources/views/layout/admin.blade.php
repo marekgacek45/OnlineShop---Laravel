@@ -17,7 +17,9 @@
             @yield('content')
 
         </main>
-
+<div class="right">
+    @yield('right')
+</div>
 
 
     </div>
