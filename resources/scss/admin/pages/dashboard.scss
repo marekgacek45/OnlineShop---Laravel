@@ -17,7 +17,7 @@
     &__insights {
         display: grid;
         grid-template-columns: 1fr;
-        gap:0;
+        gap: 0;
         @include mixins.xxl-devices {
             grid-template-columns: repeat(3, 1fr);
             gap: 1.6rem;
@@ -125,41 +125,52 @@
         }
     }
     &__orders {
-        width: 94%;
-        position: absolute;
         left: 50%;
         transform: translateX(-50%);
-        margin: 2rem 0 0 8.8rem;
+        width: 100%;
+        position: relative;
+        margin: 3rem 0 0 0;
+        @include mixins.medium-devices {
+            margin: 2rem 0 0 8.8rem;
+            position: absolute;
+            width: 94%;
+        }
         @include mixins.xxl-devices {
             width: auto;
             position: relative;
             left: 0;
             transform: translateX(0);
-            margin: 2rem 0 0 0 ;
-
+            margin: 2rem 0 0 0;
         }
         & h2 {
             margin-bottom: 0.8rem;
         }
         & table {
             background-color: colors.$white-bgc;
-            width: 83vw;
+            width: 100%;
             border-radius: variables.$border-radius;
             padding: 2em;
             box-shadow: variables.$box-shadow;
             transition: box-shadow variables.$transition;
-            @include mixins.xxl-devices{
-                width: 100%;  
+            margin: 0;
+            @include mixins.medium-devices {
+                width: 83vw;
+                // margin: auto;
             }
-            & thead tr td:last-child, thead tr td:first-child{
+            @include mixins.xxl-devices {
+                width: 100%;
+            }
+            & thead tr td:last-child,
+            thead tr td:first-child {
                 display: none;
-                @include mixins.xxl-devices{
+                @include mixins.xxl-devices {
                     display: inline-block;
                 }
             }
-            & tbody tr td:last-child, tbody tr td:first-child{
+            & tbody tr td:last-child,
+            tbody tr td:first-child {
                 display: none;
-                @include mixins.xxl-devices{
+                @include mixins.xxl-devices {
                     display: inline-block;
                 }
             }
@@ -185,13 +196,41 @@
 }
 
 .right {
-    margin: 1.4rem;
+    margin: 0 auto 4rem;
+    width: 94%;
+    @include mixins.medium-devices {
+        width: auto;
+        margin: 1.4rem;
+        margin-right: 2rem;
+    }
     & .top {
+        position: fixed;
+        top: 0;
+        left: 0;
+        align-items: center;
+        padding: 0 0.8rem;
+        height: 4.6rem;
+        background-color: colors.$white-bgc;
+        width: 100%;
+        margin: 0;
+        z-index: 2;
+        box-shadow: variables.$box-shadow;
         display: flex;
         justify-content: flex-end;
         gap: 2rem;
+        border-radius: variables.$border-radius;
+        //tutaj jest chyba troche inaczej na wiekszych ekranach sprawdzic
+        @include mixins.medium-devices {
+            position: relative;
+        }
         & .dashboard__hamburger {
-            display: none;
+            display: inline-block;
+            position: absolute;
+            left: 1rem;
+            top: 0.6rem;
+            @include mixins.medium-devices {
+                display: none;
+            }
         }
         & .theme-toggler {
             background-color: colors.$white-bgc;
@@ -199,9 +238,20 @@
             justify-content: space-between;
             align-items: center;
             height: 1.6rem;
-            width: 4.2rem;
             border-radius: variables.$border-radius;
             cursor: pointer;
+            position: absolute;
+            width: 4.4rem;
+            left: 50%;
+            @include mixins.xs-devices{
+                left: 66%;
+
+            }
+            @include mixins.medium-devices {
+                position: relative;
+                left: auto;
+                width: 4.2rem;
+            }
             & i {
                 font-size: 1.2rem;
                 width: 50%;
@@ -222,6 +272,12 @@
             align-items: center;
             gap: 1rem;
             text-align: right;
+            & .info {
+                display: none;
+                @include mixins.medium-devices {
+                    display: inline-block;
+                }
+            }
         }
     }
     & .recent-updates {
@@ -235,10 +291,10 @@
             border-radius: variables.$border-radius;
             box-shadow: variables.$box-shadow;
             transition: all variables.$transition;
-            &:hover{
+            &:hover {
                 box-shadow: none;
             }
-            & .update{
+            & .update {
                 display: grid;
                 grid-template-columns: 2.6rem auto;
                 gap: 1rem;
@@ -246,56 +302,56 @@
             }
         }
     }
-    & .sales-analytics{
+    & .sales-analytics {
         margin-top: 2rem;
-        & h2{
-            margin-bottom: .8rem;
+        & h2 {
+            margin-bottom: 0.8rem;
         }
-        & .item{
+        & .item {
             background-color: colors.$white-bgc;
             display: flex;
             align-items: center;
             gap: 1rem;
-            margin-bottom: .7rem;
-            padding:1.4rem 2rem;
+            margin-bottom: 0.7rem;
+            padding: 1.4rem 2rem;
             border-radius: variables.$border-radius;
             box-shadow: variables.$box-shadow;
-            transition:all variables.$transition;
-            &:hover{
+            transition: all variables.$transition;
+            &:hover {
                 box-shadow: none;
             }
-            & .right{
+            & .right {
                 display: flex;
                 justify-content: space-between;
                 align-items: flex-start;
                 margin: 0;
                 width: 100%;
             }
-            & .icon{
-                padding: .6rem;
+            & .icon {
+                padding: 0.6rem;
                 color: colors.$light-font;
                 border-radius: 50%;
                 background-color: colors.$color-primary;
                 display: flex;
             }
-            &.offline{
+            &.offline {
                 background-color: colors.$color-danger;
             }
-            &.online{
+            &.online {
                 background-color: colors.$color-success;
             }
-            &.add-product{
+            &.add-product {
                 background: transparent;
-                border:2px dashed colors.$color-primary;
-                color:colors.$color-primary;
+                border: 2px dashed colors.$color-primary;
+                color: colors.$color-primary;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                & .button{
+                & .button {
                     display: flex;
                     align-items: center;
-                    gap: .6rem;
-                    & h3{
+                    gap: 0.6rem;
+                    & h3 {
                         font-weight: 500;
                     }
                 }
