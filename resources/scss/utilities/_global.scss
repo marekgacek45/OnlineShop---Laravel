@@ -61,3 +61,9 @@ h5{
 p{
     color:colors.$dark-font
 }
+
+
+.dark-theme{
+    background-color: colors.$dark-bgc;
+    color: colors.$light-font;
+}

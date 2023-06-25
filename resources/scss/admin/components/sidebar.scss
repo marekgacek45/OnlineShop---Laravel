@@ -6,7 +6,7 @@
     position: fixed;
     transition: 0.6s ease;
     position: fixed;
-    left: 0;
+    left: -100%;
     background-color: colors.$white-bgc;
     width: 18rem;
     z-index: 3;
@@ -14,11 +14,15 @@
     height: 100vh;
     padding-right: 2em;
     display: none;
+    animation: showSidebar 400ms ease forwards;
     @include mixins.medium-devices {
         position: relative;
         left: 0;
         width: auto;
         padding-right: 0;
+        display: inline-block;
+    }
+    &.open{
         display: inline-block;
     }
     &__top {
@@ -34,6 +38,11 @@
         }
         &-hamburger {
             & .sidebar__hamburger {
+                display: none;
+            }
+        }
+        &-closeBtn{
+            @include mixins.medium-devices {
                 display: none;
             }
         }
