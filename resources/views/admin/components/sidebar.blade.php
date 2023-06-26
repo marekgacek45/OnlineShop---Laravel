@@ -1,6 +1,7 @@
 <aside class="asside">
     <div class="asside__top">
         <div class="asside__top-logo">
+            <img src="{{asset('images/logo.png')}}" alt="">
             <h2>IceThreads</h2>
             <button class="asside__top-closeBtn">
                 <i class="uil uil-times"></i>

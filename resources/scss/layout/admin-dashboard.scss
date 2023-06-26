@@ -1,0 +1,37 @@
+@use "../utilities/colors";
+@use "../utilities/mixins";
+@use "../utilities/variables";
+
+.admin-dashboard{
+    width: 100vw;
+    height: 100vh;
+    background-color: colors.$light-bgc;
+    font-size: 0.88rem;
+    user-select: none;
+    overflow-x: hidden;
+   &__container{
+    display: grid;
+    margin: 0 auto;
+    width: 100%;
+    gap:1.8rem;
+    grid-template-columns: 1fr;
+    
+    @include mixins.medium-devices {
+       grid-template-columns: 7rem auto 23rem;
+    }
+    
+    @include mixins.xxl-devices {
+       
+       grid-template-columns: 14rem auto 23rem;
+       
+  }
+   }
+   &__main{
+      margin-top: 8rem;
+      padding: 0 1rem;
+      @include mixins.medium-devices {
+   margin-top: 1.4rem;
+  
+}
+   }
+}

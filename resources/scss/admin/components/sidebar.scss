@@ -5,7 +5,6 @@
 .asside {
     position: fixed;
     transition: 0.6s ease;
-    position: fixed;
     left: -100%;
     background-color: colors.$white-bgc;
     width: 18rem;
@@ -15,6 +14,8 @@
     padding-right: 2em;
     display: none;
     animation: showSidebar 400ms ease forwards;
+    top: 0;
+    bottom: 0;
     @include mixins.medium-devices {
         position: relative;
         left: 0;
@@ -32,8 +33,24 @@
         align-items: center;
         margin-top: 1.4rem;
         &-logo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1em;
             & h2 {
                 display: inline-block;
+                @include mixins.medium-devices {
+                    display: none;
+                }
+                @include mixins.xxl-devices {
+                    display: inline-block;
+                }
+            }
+            & img{
+                width: 50px;
+                // @include mixins.medium-devices {
+                //     display: none;
+                // }
             }
         }
         &-hamburger {
@@ -42,6 +59,10 @@
             }
         }
         &-closeBtn{
+            border: none;
+            background: none;
+            font-size: 3rem;
+            cursor: pointer;
             @include mixins.medium-devices {
                 display: none;
             }
@@ -131,6 +152,5 @@
     }
 }
 
-.show-sidebar {
-    left: 0;
-}
+
+

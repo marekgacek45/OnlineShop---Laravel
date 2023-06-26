@@ -7,6 +7,7 @@
 @use 'pages/home';
 
 
+@use 'layout/admin-dashboard.scss';
 @use 'layout/admin.scss';
 
 // @use 'pages/login';
@@ -19,6 +20,9 @@
 @use'admin/components/sidebar.scss';
 @use'admin/pages/categories';
 @use'admin/pages/dashboard.scss';
+//ADMIN PRODUCTS
+@use'admin/pages/products/create.scss';
+@use'admin/pages/products/index.scss';
 
 @import'../../node_modules/bootstrap/scss/functions';
 @import'../../node_modules/bootstrap/scss/variables';

@@ -66,9 +66,17 @@ class ProductController extends Controller
         return back()->with('success', 'Produkt dodany');
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return 'edit';
+        $product= Product::findOrFail($id);
+        $categories = Category::all();
+        $teams = Team::all();
+        $sizes = Size::all();
+        $colors = Color::all();
+        $genders = Gender::all();
+
+    
+        return view('admin.pages.products.edit', ['product'=>$product, 'categories' => $categories, 'colors' => $colors,'teams'=>$teams,'sizes'=>$sizes,'genders'=>$genders]);
     }
 
     public function update()

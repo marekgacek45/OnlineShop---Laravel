@@ -1,4 +1,4 @@
-@extends('layout/admin')
+@extends('layout/admin-dashboard')
 @section('subtitle', 'Panel Admina')
 
 @section('content')
