@@ -37,10 +37,11 @@
                         <td>@foreach ($product->sizes as $item)
                             <div class="td"><p>{{$item->name}}</p></div>
                         @endforeach</td>
+                       
                         <td>
                             <div class="actions">
-                                <button><a href="{{route("admin.product.edit", $product->id)}}"><i class="uil uil-eye"></i></a></button>
-                                <button><i class="uil uil-edit"></i></button>
+                                <button><i class="uil uil-eye"></i></button>
+                                <button><a href="{{route("admin.product.edit", $product->id)}}"><i class="uil uil-edit"></i></a></button>
                                 <button><i class="uil uil-times-circle"></i></button>
                             </div>
                         </td>

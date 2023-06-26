@@ -3,6 +3,9 @@
 
 @section('content')
     <main class="test">
+
+
+
         <div class="form__box form--login" >
             <div class="form__box-title">
             </div>
@@ -40,13 +43,13 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form__field">
+                    {{-- <div class="form__field">
                         <label for="colors">Kolor</label>
                         @foreach ($colors as $color)
                            <input type="checkbox" name="colors[]" id="{{$color->name}}" value="{{$color->id}}">
                            <span style="width:30px;height:30px;background-color:{{$color->code}}"></span>
                         @endforeach
-                    </div>
+                    </div> --}}
                     <div class="form__field">
                         <label for="colors">Rozmiar</label>
                         @foreach ($sizes as $size)
@@ -58,7 +61,7 @@
                         <label for="colors">Płeć</label>
                         @foreach ($genders as $gender)
                         <label for="gender[]">{{$gender->name}}</label>
-                           <input type="checkbox" name="genders[]" id="{{$gender->name}}" value="{{$gender->id}}">
+                           <input type="checkbox" name="genders[]" id="{{$gender->name}}" value="{{$gender->id}}"value="{{$gender->id}}"{{in_array($gender->id,$product->genders->pluck('id')->toArray())?'checked':''}}>
                         @endforeach
                     </div>
                     
@@ -87,13 +90,11 @@
                     </div>
 
                     <div class="form__field">
-                        <button type="submit">Dodaj Produkt</button>
+                        <button type="submit">Zaktualizuj</button>
                     </div>
                 </form>
             </div>
-            <div class="form__box-link">
-                <p>Nie masz konta?<label for="flip">stwórz je</label></p>
-            </div>
+            
 
 
         </div>

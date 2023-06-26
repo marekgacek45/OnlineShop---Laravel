@@ -42,10 +42,10 @@
                 <i class="uil uil-clipboard"></i>
                 <h3>Drużyny</h3>
             </a>
-            <a href="{{ route('admin.colors') }}" class="sidebar__item">
+            {{-- <a href="{{ route('admin.colors') }}" class="sidebar__item">
                 <i class="uil uil-palette"></i>
                 <h3>Kolory</h3>
-            </a>
+            </a> --}}
             <a href="{{ route('admin.sizes') }}" class="sidebar__item">
                 <i class="uil uil-palette"></i>
                 <h3>Rozmiary</h3>

@@ -28,7 +28,7 @@ class ProductController extends Controller
         $colors = Color::all();
         $genders = Gender::all();
     
-        return view('admin.pages.products.create', ['categories' => $categories, 'colors' => $colors,'teams'=>$teams,'sizes'=>$sizes,'genders'=>$genders]);
+        return view('admin.pages.products.create', ['categories' => $categories, 'teams'=>$teams,'sizes'=>$sizes,'genders'=>$genders]);
     }
 
     public function store(Request $request)
@@ -38,7 +38,7 @@ class ProductController extends Controller
             'price' => 'required',
             'category_id' => 'required',
             'team_id' => 'required',
-            'colors' => 'required',
+            // 'colors' => 'required',
             'genders' => 'required',
             'sizes' => 'required',
             
@@ -59,7 +59,7 @@ class ProductController extends Controller
 
         $product->save(); 
         $product->sizes()->attach($request->sizes);
-        $product->colors()->attach($request->colors);
+        // $product->colors()->attach($request->colors);
         $product->genders()->attach($request->genders);
        
 
@@ -72,11 +72,11 @@ class ProductController extends Controller
         $categories = Category::all();
         $teams = Team::all();
         $sizes = Size::all();
-        $colors = Color::all();
+        // $colors = Color::all();
         $genders = Gender::all();
 
     
-        return view('admin.pages.products.edit', ['product'=>$product, 'categories' => $categories, 'colors' => $colors,'teams'=>$teams,'sizes'=>$sizes,'genders'=>$genders]);
+        return view('admin.pages.products.edit', ['product'=>$product, 'categories' => $categories, 'teams'=>$teams,'sizes'=>$sizes,'genders'=>$genders]);
     }
 
     public function update()
