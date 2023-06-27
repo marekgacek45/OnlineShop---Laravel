@@ -9,17 +9,19 @@
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 
-<body class="admin">
-    <div class="admin__container">
-
-        <div class="admin__sidebar">
+<body class="admin-dashboard ">
+    <div class="admin-dashboard__container admin-container">
 
             @include('admin/components/sidebar')
-        </div>
-        <main class="admin__main">
+
+        <main class="admin-dashboard__main admin-main">
             @yield('content')
 
         </main>
+        <div class="right admin-right">
+            @yield('right')
+        </div>
+
 
     </div>
 </body>

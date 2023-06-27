@@ -113,6 +113,7 @@ class ProductController extends Controller
 
     public function delete($id)
     {
-        return 'delete';
+        $product = Product::findOrFail($id)->delete();
+        return back()->with('success','Produkt usunięty');
     }
 }

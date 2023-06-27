@@ -47,6 +47,7 @@ Route::group(['prefix'=>'admin','middleware'=>'admin'],function(){
         Route::post('/create', [ProductController::class,('store')])->name('admin.product.store');
         Route::get('/${id}', [ProductController::class,('edit')])->name('admin.product.edit');
         Route::put('/${id}', [ProductController::class,('update')])->name('admin.product.update');
+        Route::delete('/${id}', [ProductController::class,('delete')])->name('admin.product.delete');
        
     });
     //CATEGORIES

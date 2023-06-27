@@ -34,15 +34,25 @@
                             <div class="td"><img src="{{ asset('storage/' . $product->team->logo) }}" alt=""
                                     style="width:50px"></div>
                         </td>
-                        <td>@foreach ($product->sizes as $item)
-                            <div class="td"><p>{{$item->name}}</p></div>
-                        @endforeach</td>
-                       
+                        <td>
+                            @foreach ($product->sizes as $item)
+                                <div class="td">
+                                    <p>{{ $item->name }}</p>
+                                </div>
+                            @endforeach
+                        </td>
+
                         <td>
                             <div class="actions">
                                 <button><i class="uil uil-eye"></i></button>
-                                <button><a href="{{route("admin.product.edit", $product->id)}}"><i class="uil uil-edit"></i></a></button>
-                                <button><i class="uil uil-times-circle"></i></button>
+                                <button><a href="{{ route('admin.product.edit', $product->id) }}"><i
+                                            class="uil uil-edit"></i></a></button>
+                                <form action="{{ route('admin.product.delete', $product->id) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"><i class="uil uil-times-circle">
+                                        </i></button>
+                                </form>
                             </div>
                         </td>
 

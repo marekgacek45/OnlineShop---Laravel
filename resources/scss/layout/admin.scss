@@ -2,15 +2,28 @@
 @use "../utilities/mixins";
 @use "../utilities/variables";
 
-.admin__sidebar{
-    position: fixed;
+.admin-right {
+    @include mixins.medium-devices {
+        display: none;
+    }
 }
-.admin__main{
-    position: absolute;
-    left: 13rem;
-    top: 1rem;
-    right: 0;
-    margin-bottom: 5rem;
-    padding: 1em;
+
+.admin-container {
     text-align: center;
+    gap: 0;
+    @include mixins.medium-devices {
+        grid-template-columns: 7rem auto;
+    }
+
+    @include mixins.xxl-devices {
+        grid-template-columns: 14rem auto;
+    }
+}
+
+.admin-main {
+ margin-right: 1em;
+    @include mixins.small-devices {
+        padding: 2em 5em;
+        margin-bottom: 2em;
+    }
 }
