@@ -1,0 +1,82 @@
+@use "../../../utilities/colors";
+@use "../../../utilities/mixins";
+@use "../../../utilities/variables";
+
+
+.products-table{
+        background-color: colors.$white-bgc;
+        padding: 1em;
+        border-radius: variables.$border-radius;
+        box-shadow: variables.$box-shadow;
+        transition: all variables.$transition;
+        &:hover {
+            box-shadow: none;
+        }
+
+        & tbody{
+            & tr{
+                & td{
+                    height: 80px;
+                   
+                }
+                & .actions{
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+                & .td{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    
+                }
+               & .td-image{
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 3rem;
+               }
+            }
+        }
+}
+
+.actions{
+    
+    gap: 1em;
+    & button{
+        border: none;
+        background: none;
+        cursor: pointer;
+        transition:color variables.$transition;
+        & :hover{
+            color:colors.$color-primary
+        }
+        & i{
+            font-size: 1.7rem;
+            
+        }
+    }
+}
+
+
+.desktop{
+    display: none;
+    @include mixins.large-devices {
+        display: table-cell
+    }
+ 
+}
+
+.small{
+    display: none;
+    @include mixins.small-devices {
+        display: flex;
+    }
+}
+
+.flex{
+display: flex;
+justify-content: center;
+align-items: center;
+
+}

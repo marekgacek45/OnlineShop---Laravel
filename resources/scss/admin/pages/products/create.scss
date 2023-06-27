@@ -1,0 +1,93 @@
+@use "../../../utilities/colors";
+@use "../../../utilities/mixins";
+@use "../../../utilities/variables";
+.create {
+    background-color: colors.$white-bgc;
+    padding: 1em;
+    border-radius: variables.$border-radius;
+    box-shadow: variables.$box-shadow;
+
+    &__field {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        &--checkbox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2em;
+            & label {
+                margin-top: 0 !important;
+                font-weight: 400 !important;
+                display: flex;
+                & input {
+                    margin-left: 0.3em;
+                    outline: none;
+                }
+            }
+        }
+
+        & label {
+            margin: 1em 0 0.5em 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        & input,
+        select,
+        textArea,
+        button {
+            width: 90%;
+            padding: 0.7em;
+            border-radius: variables.$border-radius;
+            text-align: center;
+            border: 1px solid colors.$color-primary;
+            font-size: 1rem;
+            outline: none;
+            &:focus {
+                box-shadow: 3px 3px 15px colors.$color-primary;
+            }
+            @include mixins.large-devices {
+                width: 60%;
+            }
+            @include mixins.xxl-devices {
+                width: 50%;
+            }
+        }
+        & textArea {
+            min-width: 100%;
+            max-width: 100%;
+            text-align: left;
+            height: auto;
+            min-height: 100px;
+            @include mixins.large-devices {
+                width: 60%;
+                min-width: 60%;
+            max-width: 60%;
+            }
+            @include mixins.xxl-devices {
+                min-width: 50%;
+            max-width: 50%;
+            }
+        }
+        & button {
+            background-color: colors.$color-primary;
+            color: colors.$light-font;
+            cursor: pointer;
+            margin-top: 2em;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.error-text {
+    color: colors.$color-danger;
+    margin-top: 0.3em;
+}
+
+.top.top--create {
+    @include mixins.medium-devices {
+        display: none;
+    }
+}

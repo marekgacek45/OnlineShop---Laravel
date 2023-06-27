@@ -20,9 +20,10 @@ const sidebarHandler = () => {
     sidebarMenu.classList.toggle("open");
 };
 
+if (sidebarHamburger) {
+    sidebarHamburger.addEventListener("click", sidebarHandler);
+}
+if(sidebarCloseBtn){
 
-// if (sidebarHamburger) {
-//     sidebarHamburger.addEventListener("click", sidebarHandler);
-// }
-sidebarHamburger.addEventListener("click", sidebarHandler)
-sidebarCloseBtn.addEventListener("click", sidebarHandler)
+    sidebarCloseBtn.addEventListener("click", sidebarHandler);
+}

@@ -1,9 +1,9 @@
-@extends('layout/admin')
+@extends('layout/admin-dashboard')
 @section('subtitle', 'Panel Admina')
 
 @section('content')
 
-    <h1>Dashboard</h1>
+    <h1>Panel Admina</h1>
     <div class="dashboard__date">
         <input type="date">
     </div>
@@ -22,7 +22,7 @@
                         <circle cx='38'cy="38"r='36'></circle>
                     </svg>
                     <div class="number">
-                        <p>81%</p>
+                        <p>51%</p>
                     </div>
                 </div>
             </div>
@@ -75,55 +75,49 @@
     </div>
     <!--RECENT ORDERS-->
     <div class="dashboard__orders">
-        <h2>recent orders</h2>
-        <table>
+        <h2>Ostatnie zamówienia</h2>
+        <table class="table table striped">
             <thead>
                 <tr>
-                    <td>Product Name</td>
-                    <td>Product Number</td>
-                    <td>Payment</td>
-                    <td>Status</td>
+                    <th scope="col">Zamawiający</th>
+                    <th scope="col">Cena</th>
+                    <th scope="col">Status opłaty</th>
+                    <th scope="col">Status zamówienia</th>
+
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>Koszulka San Jose</td>
-                    <td>12344</td>
-                    <td>Due</td>
-                    <td>Pending</td>
-                    <td>Details</td>
+                    <th>Adam Małysz</th>
+                    <th>1999 zł</th>
+                    <th>Zapłacone</th>
+                    <th>Wysłane</th>
+
                 </tr>
                 <tr>
-                    <td>Koszulka San Jose</td>
-                    <td>12344</td>
-                    <td>Due</td>
-                    <td>Pending</td>
-                    <td>Details</td>
+                    <th>Noriaki Kasai</th>
+                    <th>499 zł</th>
+                    <th>Zapłacone</th>
+                    <th>Dostarczone</th>
+
                 </tr>
                 <tr>
-                    <td>Koszulka San Jose</td>
-                    <td>12344</td>
-                    <td>Due</td>
-                    <td>Pending</td>
-                    <td>Details</td>
+                    <th>Janne Ahonen</th>
+                    <th>499 zł</th>
+                    <th>Zapłacone</th>
+                    <th>W trakcie pakowania</th>
+
                 </tr>
                 <tr>
-                    <td>Koszulka San Jose</td>
-                    <td>12344</td>
-                    <td>Due</td>
-                    <td>Pending</td>
-                    <td>Details</td>
+                    <th>Robert Mateja</th>
+                    <th>999 zł</th>
+                    <th>Nieopłacone</th>
+                    <th>-</th>
                 </tr>
-                <tr>
-                    <td>Koszulka San Jose</td>
-                    <td>12344</td>
-                    <td>Due</td>
-                    <td>Pending</td>
-                    <td>Details</td>
-                </tr>
+
             </tbody>
         </table>
-        <a href="">Show All</a>
+        <a href="">Pokaż wszystkie</a>
     </div>
 
 @endsection
@@ -135,19 +129,15 @@
                 <i class="uil uil-bars"></i>
             </button>
 
-            {{-- <button class="hamburger hamburger--boring dashboard__hamburger" type="button">
-            <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-            </span>
-        </button> --}}
+
         </div>
-        <div class="theme-toggler">
+        {{-- <div class="theme-toggler">
             <i class="uil uil-sun active"></i>
             <i class="uil uil-moon"></i>
-        </div>
+        </div> --}}
         <div class="profile">
             <div class="info">
-                <p>Hey, <b>Rafał</b></p>
+                <p>Cześć, <b>admin</b></p>
                 <small>admin</small>
             </div>
             <div class="profile-photo">
@@ -172,7 +162,7 @@
                     <img src="https://cdn.pixabay.com/photo/2016/09/01/08/25/smiley-1635458_1280.png" alt="">
                 </div>
                 <div class="message">
-                    <p><b>Adam Małysz</b> wiadmość testowa</p>
+                    <p><b>Adam Małysz</b> wiadmosść testowa</p>
                     <small>2 minuty temu</small>
                 </div>
             </div>
@@ -228,11 +218,13 @@
                 <h3>3849</h3>
             </div>
         </div>
+        <a href="{{route('admin.product.create')}}">
         <div class="item add-product">
-            <div class="button">
-                <i class="uil uil-plus-circle"></i>
-                <h3>Dodaj Produkt</h3>
-            </div>
-        </div>
+                <div class="button">
+                    <i class="uil uil-plus-circle"></i>
+                    <h3>Dodaj Produkt</h3>
+                </div>
+            </a>
+    </div>
     </div>
 @endsection
