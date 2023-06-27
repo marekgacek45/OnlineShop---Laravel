@@ -30,7 +30,7 @@
                 <tr>
                     
                     <th>{{$size->name}}</th>
-                    <td><form action="{{route('admin.color.destroy',$size->id)}}" method="POST">
+                    <td><form action="{{route('admin.size.destroy',$size->id)}}" method="POST">
                     @csrf
                     @method('DELETE')
                     <button type="submit">X</button>

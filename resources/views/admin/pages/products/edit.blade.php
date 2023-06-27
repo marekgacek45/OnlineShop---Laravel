@@ -11,8 +11,9 @@
             </div>
             <div class="form__box-content" >
                 <h2>Edytuj produkt</h2>
-                <form action="{{ route('admin.product.store') }}" method="post" enctype="multipart/form-data">
+                <form action="{{ route('admin.product.update', $product->id) }}" method="post" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     @error('loginError')
                         <span class="error-text">{{ $message }}</span>
                     @enderror
