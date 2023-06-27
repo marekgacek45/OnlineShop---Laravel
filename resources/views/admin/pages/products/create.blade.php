@@ -5,6 +5,7 @@
 
 
 @section('content')
+
 <div class="create">
     <h1>Dodaj produkt</h1>
     <form action="{{ route('admin.product.store') }}" method="post" enctype="multipart/form-data">
@@ -19,6 +20,7 @@
                 <span class="error-text">{{ $message }}</span>
             @enderror
         </div>
+        
         <div class="create__field">
             <label for="category_id">Kategoria</label>
             <select name="category_id" id="category_id">
@@ -113,7 +115,7 @@
     </div>
     <div class="profile">
         <div class="info">
-            <p>Hey, <b>Rafał</b></p>
+            <p>Cześć, <b>Admin</b></p>
             <small>admin</small>
         </div>
         <div class="profile-photo">
