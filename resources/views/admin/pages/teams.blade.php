@@ -13,7 +13,7 @@
             {{ session('success') }}
         </div>
     @endif
-    <form action="{{route('admin.team.store')}}" method="post">
+    <form action="{{route('admin.team.store')}}" method="post" enctype="multipart/form-data">
         @csrf
         <div class="create__field">
             <label for="name">Nazwa Drużyny</label>

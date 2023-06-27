@@ -14,6 +14,8 @@ class TeamController extends Controller
     }
     public function store(Request $request)
     {
+
+
         $request->validate([
             'name' => 'required|max:255',
             'logo' => 'required|image|mimes:jpg,png,jpeg,webp|max:5000',

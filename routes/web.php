@@ -24,6 +24,7 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/', [PagesController::class, ('home')])->name('home');
 Route::get('/user', [PagesController::class, ('userPanel')])->name('userPanel');
+Route::get('/produkt/{id}', [PagesController::class, ('product')])->name('product');
 
 //AUTH
 

@@ -12,7 +12,7 @@
 <body>
     @include('components/navigation')
 
-    <main class="content">
+    <main class="main">
         @yield('content')
     </main>
 
