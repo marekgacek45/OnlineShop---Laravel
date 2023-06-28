@@ -11,17 +11,23 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     function home()
-    {$products = Product::all();
+    {
+        $products = Product::all();
         $teams = Team::all();
-        return (view('pages/home',['products'=>$products,'teams'=>$teams]));
+        return (view('pages/home', ['products' => $products, 'teams' => $teams]));
     }
     function userPanel()
     {
         return (view('pages/user'));
     }
     function product($id)
-    {$product = Product::findOrFail($id);
-        
-        return (view('pages/product',['product'=>$product]));
+    {
+
+        $product = Product::findOrFail($id);
+        $team = $product->team->id;
+        $products = Product::where('team_id', $team)->get();
+
+
+        return (view('pages/product', ['product' => $product, 'products' => $products, 'team' => $team]));
     }
 }

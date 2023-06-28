@@ -1,6 +1,6 @@
-@use'../utilities/colors';
-@use'../utilities/variables';
-@use'../utilities/mixins';
+@use "../utilities/colors";
+@use "../utilities/variables";
+@use "../utilities/mixins";
 .main {
     display: flex;
     justify-content: center;
@@ -12,8 +12,8 @@
 
 .header {
     position: relative;
-    width: 1400px;
-    height: 400px;
+    width: 100vw;
+    height: 500px;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -21,25 +21,119 @@
     background-position: center;
     background-size: cover;
     margin-top: 1em;
-    & h1,
-    h2 {
-        z-index: 100;
-        color: white;
+    &__opacity {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        opacity: 0.6;
+        border-radius: variables.$border-radius;
     }
-    & h1 {
-        font-size: 4rem;
+    &__text {
+        z-index: 10;
+        text-align: center;
+        color: colors.$light-font;
+        & h1 {
+            font-size: 3rem;
+            @include mixins.xs-devices {
+                font-size: 5rem;
+            }
+        }
+        & h2 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            @include mixins.xs-devices {
+                font-size: 1.2rem;
+            }
+        }
+    }
+    &__btn {
+        padding: 1em 3em;
+        border-radius: variables.$border-radius;
+        z-index: 10;
+        font-size: 1rem;
+        font-weight: bold;
+        color: colors.$light-font;
+        background-color: colors.$color-primary;
+        border: none;
+        cursor: pointer;
     }
 }
 
-.opacity {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    opacity: 0.6;
+.about {
+    &__container {
+      
+        margin-top: 1em;
+    }
+    &__text {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        & img {
+            width: 150px;
+        }
+        & h2{
+            font-size: 2rem;
+            margin-top: .5em;
+        }
+        & h4{
+            font-size: 1.3rem;
+            color: colors.$color-primary;
+            margin-bottom: .5em;
+        }
+    }
+    &__boxes {
+        margin-top: 2em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2em;
+        width: 100%;
+        flex-direction: column;
+        @include mixins.medium-devices {
+            flex-direction: row;
+        }
+        @include mixins.xl-devices {
+            gap: 4em;
+        }
+    }
+    &__box {
+        height: 400px;
+        width: 100%;
+        position: relative;
+        border-radius: variables.$border-radius;
+        @include mixins.medium-devices {
+            width: 45%;
+        }
+        @include mixins.xl-devices {
+            width: 50%;
+        }
+        & h2, p {
+            z-index: 10;
+            color: colors.$light-font;
+        }
+        & h2{
+            font-size: 2rem;
+        }
+        &--one {
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXuFX0qdTG1ZqHNuaIj8seyeke8QTQgv9FcqEJAmE-Sb9IeGZfEczzJr4dGIQaevFlg-0&usqp=CAU);
+        }
+        &--two {
+            background-image: url(https://i.ebayimg.com/images/g/NFgAAOSww3ZifZEY/s-l1200.jpg);
+        }
+        & a{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+    }
 }
-
-
 
 .teams {
     &__container {
@@ -56,85 +150,95 @@
         flex-wrap: wrap;
         height: 100%;
         width: 100%;
-        margin-top: 2em;
-        & .team{
-            & img{
-                width: 75px;
+        // margin-top: 2em;
+        & .team {
+            width: 70px;
+            & img {
+               width: 100%;
             }
         }
     }
 }
 
-.heroImg{
-    width: 1400px;
-    & img{
+.heroImg {
+    & img {
         width: 100%;
+        height: 100%;
+        object-fit: cover
+        
     }
 }
 
-.products{
-    &__container{
+.products {
+    &__container {
         display: flex;
         justify-content: center;
         align-items: center;
         gap: 2em;
         flex-wrap: wrap;
     }
-    & .product__card{
+    & .product__card {
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         align-items: center;
         background-color: colors.$white-bgc;
-        padding: 1em 2em;
+        padding: 0em 2em;
         border-radius: variables.$border-radius;
         box-shadow: variables.$box-shadow;
         transition: all variables.$transition;
         border: 1px solid colors.$color-primary;
-        width: 23%;
-        height:450px;
-        &-img{
-            height: 60%;
-            
-            & img{
-height: 100%;
-width: 100%;
-object-fit: contain;
+        // width: 20%;
+        height: 400px;
+        cursor: pointer;
+        &-img {
+           height: 50%;
+            width: 90%;
+            justify-self: flex-start;
+            @include mixins.xl-devices {
+                width: 100%;
+            }
+
+            & img {
+                height: 100%;
+                width: 100%;
+                object-fit: contain;
             }
         }
-        &-text{
+        &-text {
             // height: 30%;
             text-align: center;
-            & h3{
-                font-size: 2rem;
-                color:colors.$color-primary
-
+            & h2{
+                font-size: 1rem;
+            }
+            & h3 {
+                font-size: 1.6rem;
+                color: colors.$color-primary;
             }
         }
-        &-actions{
+        &-actions {
             // height: 10%;
             display: flex;
             justify-content: space-evenly;
             align-items: center;
             width: 100%;
             gap: 1em;
-            & button{
+            & button {
                 border-radius: variables.$border-radius;
-                padding: .5em 3em;
+                padding: 0.5em 3em;
                 cursor: pointer;
-                &.add{
+                &.add {
                     background-color: colors.$color-primary;
                     border: none;
                     color: white;
                 }
-                &.fav{
-                    border:1px solid colors.$color-primary;
-                    & i{
+                &.fav {
+                    border: 1px solid colors.$color-primary;
+                    & i {
                         color: red;
-                        
                     }
                 }
-                & i{
+                & i {
                     font-size: 1.3rem;
                 }
             }

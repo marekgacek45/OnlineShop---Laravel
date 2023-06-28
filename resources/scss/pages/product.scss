@@ -1,0 +1,79 @@
+.product {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid red;
+        width: 100%;
+        max-width: 1200px;
+
+        &-images {
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            & img {
+                width: 400px;
+            }
+        }
+        &-info {
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            & .top {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                & img {
+                    width: 150px;
+                }
+            }
+            & .other {
+                margin-top: 1em;
+                text-align: center;
+                &__container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 0.5em;
+                }
+                &__box {
+                    margin-top: 0.5em;
+                    border: 1px solid colors;
+                    padding: 1em;
+                    max-width: 80px;
+                    width: 80px;
+                    max-height: 80px;
+                    height: 80px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+                    & img {
+                        width: 90%;
+
+                        height: 90%;
+                        object-fit: cover;
+                    }
+                }
+            }
+            & .sizes {
+                &__container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    &__box{
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: row;
+                    }
+                }
+            }
+        }
+    }
+}
