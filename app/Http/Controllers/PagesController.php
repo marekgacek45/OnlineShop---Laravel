@@ -13,8 +13,19 @@ class PagesController extends Controller
     function home()
     {
         $products = Product::all();
+        $jerseys = Product::with('category')
+                ->whereHas('category', function ($query) {
+                    $query->where('name', 'koszulki');
+                })
+                ->get();
+        $hats = Product::with('category')
+                ->whereHas('category', function ($query) {
+                    $query->where('name', 'czapki');
+                })
+                ->get();
+
         $teams = Team::all();
-        return (view('pages/home', ['products' => $products, 'teams' => $teams]));
+        return (view('pages/home', ['products' => $products, 'teams' => $teams,'jerseys'=>$jerseys,'hats'=>$hats]));
     }
     function userPanel()
     {

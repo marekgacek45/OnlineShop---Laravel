@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Size;
 use App\Models\Team;
-use App\Models\Color;
+
 use App\Models\Gender;
 use App\Models\Product;
 use App\Models\Category;
