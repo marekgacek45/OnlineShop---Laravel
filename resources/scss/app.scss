@@ -3,7 +3,6 @@
 //COMPONENTS
 @use 'components/hamburger.scss';
 @use 'components/navigation.scss';
-@use 'components/modal.scss';
 @use 'components/footer.scss';
 
 //PAGES
@@ -15,8 +14,7 @@
 @use 'layout/admin-dashboard.scss';
 @use 'layout/admin.scss';
 
-// @use 'pages/login';
-// @use 'pages/log-reg';
+
 @use 'pages/log-reg-new';
 
 
@@ -32,5 +30,4 @@
 @import'../../node_modules/bootstrap/scss/functions';
 @import'../../node_modules/bootstrap/scss/variables';
 @import'../../node_modules/bootstrap/scss/mixins';
-@import'../../node_modules/bootstrap/scss/buttons';
 @import'../../node_modules/bootstrap/scss/tables';

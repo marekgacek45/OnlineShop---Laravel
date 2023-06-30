@@ -21,7 +21,7 @@
                 <div class="product__images" style="background-image: url({{asset('storage/'.$jersey->thumbnail)}})"></div>
                 <h2>{{$jersey->price}} zł</h2>
                 <div class="product__actions">
-                    <a href="{{route('product',$jersey->id)}}"></a><button>zobacz</button>
+                    <a href="{{route('product',$jersey->id)}}"><button>zobacz</button></a>
                     <button>dodaj do koszyka</button>
                 </div>
             </div>

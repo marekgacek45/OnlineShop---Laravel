@@ -60,19 +60,16 @@
         <a href="{{ route('hats') }}">
             <li>Czapki</li>
         </a>
-        <a href="">
-            <li>Drużyny</li>
-        </a>
+       
     </ul>
     <ul class="navbar__actions">
-        <li><i class="uil uil-heart"></i></li>
-        <li><i class="uil uil-shopping-cart-alt"></i></li>
         @auth
-            <a href="{{ route('userPanel') }}"><i class="uil uil-user-circle"></i></a>
+        <li><a href="{{route('postLogout')}}"> <i class="uil uil-sign-out-alt"></i></a></li>
         @else
-            <a href="{{ route('showLogin') }}"><i class="uil uil-user-circle"></i></a>
+        <li><a href="{{ route('showLogin') }}"><i class="uil uil-user-circle"></i></a></li>
         @endauth
-        <a href="{{ route('admin.dashboard') }}"><i class="uil uil-apps"></i></a>
+        <li><a href="{{ route('admin.dashboard') }}"><i class="uil uil-apps"></i></a></li>
+        <li><i class="uil uil-shopping-cart-alt"></i></li>
     </ul>
     <button class="hamburger hamburger--boring navbar__hamburger" type="button">
         <span class="hamburger-box">
@@ -87,21 +84,18 @@
         <a href="{{ route('jerseys') }}">
             <li>Koszulki</li>
         </a>
-        ><a href="{{ route('hats') }}">
+        <a href="{{ route('hats') }}">
             <li>Czapki</li>
         </a>
-        <a href="">
-            <li>Drużyny</li>
-        </a>
+        
         <div class="navbar__dropdown-menu__actions">
-            <li><i class="uil uil-heart"></i></li>
-            <li><i class="uil uil-shopping-cart-alt"></i></li>
             @auth
-                <li><a href="{{ route('userPanel') }}"><i class="uil uil-user-circle"></i></a></li>
+            <li><a href="{{route('postLogout')}}"> <i class="uil uil-sign-out-alt"></i></a></li>
             @else
-                <li><a href="{{ route('showLogin') }}"><i class="uil uil-user-circle"></i></a></li>
+            <li><a href="{{ route('showLogin') }}"><i class="uil uil-user-circle"></i></a></li>
             @endauth
             <li><a href="{{ route('admin.dashboard') }}"><i class="uil uil-apps"></i></a></li>
+            <li><i class="uil uil-shopping-cart-alt"></i></li>
         </div>
     </div>
 </nav>

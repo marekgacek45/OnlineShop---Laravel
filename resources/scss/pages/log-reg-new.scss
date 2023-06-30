@@ -4,15 +4,16 @@
 
 .log-reg {
     min-height: 100vh;
-    background-color: blue;
+    background-color: white;
 }
 
 .content {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 85vh;
+    height: 88vh;
     padding: 2em;
+    background-color: colors.$light-bgc;
 }
 
 .form {
@@ -27,6 +28,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-radius: variables.$border-radius;
 
     &__box {
         width: 100%;
@@ -43,6 +45,7 @@
         &-title {
             align-self: start;
             margin-left: 1em;
+            color: colors.$color-primary;
         }
         &-content {
             display: flex;
@@ -63,15 +66,18 @@
                     font-weight: bold;
                 }
                 & input {
-                    border: 2px solid rgb(180, 177, 177);
+                    border: 2px solid colors.$color-primary;
                     padding: 0.8em;
+                    border-radius: variables.$border-radius;
                 }
                 & button {
                     margin-top: 2em;
                     padding: 0.8em;
-                    background-color: black;
+                    background-color: colors.$color-primary;
                     color: white;
                     border: none;
+                    cursor: pointer;
+                    border-radius: variables.$border-radius;
                 }
             }
         }
@@ -94,6 +100,7 @@
         transition: all 1s ease;
         transform-origin: left;
         transform-style: preserve-3d;
+        border-radius: variables.$border-radius;
         @include mixins.medium-devices {
             display: block;
         }

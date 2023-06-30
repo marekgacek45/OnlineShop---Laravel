@@ -20,7 +20,6 @@
     align-items: center;
     background-position: center;
     background-size: cover;
-    margin-top: 1em;
     &__opacity {
         position: absolute;
         width: 100%;
@@ -47,6 +46,9 @@
             }
         }
     }
+    & a{
+        z-index: 10;
+    }
     &__btn {
         padding: 1em 3em;
         border-radius: variables.$border-radius;
@@ -56,7 +58,12 @@
         color: colors.$light-font;
         background-color: colors.$color-primary;
         border: none;
+        text-transform: uppercase;
         cursor: pointer;
+        & a{
+            z-index: 10;
+        }
+        
     }
 }
 
@@ -175,6 +182,7 @@
         align-items: center;
         gap: 1em;
         flex-wrap: wrap;
+        margin-bottom: 2em;
         
     }
     & .product__card {

@@ -8,14 +8,14 @@
         <div class="form__cover">
             <img src="{{asset('images/login.jpg')}}" alt="">
         </div>
-        <div class="form__box form--login">
+        <div class="form__box form--login ">
             <div class="form__box-title">
-                <h2>firma ddd</h2>
+                <h2>IceThreads</h2>
             </div>
             <div class="form__box-content">
                 <h2>Zaloguj się</h2>
                 <p>Witamy ponownie</p>
-                <form action="{{ route('postLogin') }}" method="post">
+                <form action="{{ route('postLogin') }}" method="post" id="login">
                     @csrf
                     @error('loginError')
                         <span class="error-text">{{ $message }}</span>
@@ -36,7 +36,7 @@
     
                     </div>
                     <div class="form__field">
-                        <button type="submit">Zaloguj się</button>
+                        <button type="submit" form="login">Zaloguj się</button>
     
                     </div>
                 </form>
@@ -47,14 +47,17 @@
 
            
         </div>
-        <div class="form__box form--register">
+        @php
+            
+        @endphp
+        <div class="form__box form--register" >
             <div class="form__box-title">
-                <h2>firma ddd</h2>
+                <h2>IceThreads</h2>
             </div>
             <div class="form__box-content">
                 <h2>Zarejestruj się</h2>
                 <p>Fajnie ze jestes</p>
-                <form action="{{ route('postRegister') }}" method="post">
+                <form action="{{ route('postRegister') }}" method="post" id="register">
                     @csrf
                     @error('loginError')
                         <span class="error-text">{{ $message }}</span>
@@ -88,7 +91,7 @@
                         @enderror
                     </div>
                     <div class="form__field">
-                        <button type="submit">Stwórz konto</button>
+                        <button type="submit" form="register" id="registerBtn">Stwórz konto</button>
     
                     </div>
                 </form>

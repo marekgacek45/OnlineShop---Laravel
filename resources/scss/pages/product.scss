@@ -1,34 +1,69 @@
+@use "../utilities/colors";
+@use "../utilities/variables";
+@use "../utilities/mixins";
+
 .product {
     &__container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        border: 1px solid red;
-        width: 100%;
-        max-width: 1200px;
-
+        width: 96%;
+        padding: 2em;
+        flex-direction: column;
+        @include mixins.medium-devices {
+           flex-direction: row;
+        }
         &-images {
-            width: 50%;
+            width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             & img {
-                width: 400px;
+                width: 80%;
+                margin-bottom: 2em;
+                @include mixins.medium-devices {
+                    margin-bottom: 0;
+                    width: 50%;
+                }
+                @include mixins.large-devices {
+                    width: 70%;
+                    max-width: 350px;
+                }
             }
         }
         &-info {
-            width: 50%;
+            width: 100%;
             display: flex;
-            justify-content: space-between;
             align-items: center;
             flex-direction: column;
+            @include mixins.medium-devices {
+                width: 50%;
+            }
+           
             & .top {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                
                 & img {
-                    width: 150px;
+                    width: 100px;
+                    margin-bottom: .5em;
+                    @include mixins.medium-devices {
+                        width: 150px;
+                    }
+                }
+                & h1{
+                    margin-bottom: 1em;
+                    text-align: center;
+
+                }
+                & p{
+                    margin-bottom: 2em;
+                    text-align: center;
+                    & span{
+                        font-weight: bold;
+                    }
                 }
             }
             & .other {
@@ -66,11 +101,24 @@
                     justify-content: center;
                     align-items: center;
                     flex-direction: column;
-                    &__box{
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
+                    
+                }
+                &__box{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    flex-direction: column;
+                    margin-bottom: 3em;
+                    @include mixins.medium-devices {
                         flex-direction: row;
+                    }
+                    & label{
+                        font-weight: bold;
+                    }
+                    & select{
+                       padding: .5em 1em;
+                       margin-left: 1em;
+                       
                     }
                 }
             }

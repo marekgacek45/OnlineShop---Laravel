@@ -11,7 +11,7 @@
                 <h1>IceThreads</h1>
                 <h2>Najlepsze ciuchy w jendym miejscu</h2>
             </div>
-            <button class="header__btn">PROMOCJE</button>
+            <a href="{{route('newest')}}"> <button class="header__btn">nowości</button></a>
         </div>
     </header>
 
@@ -61,8 +61,8 @@
             @php
                 $product = $products[$i];
             @endphp
-        
-            <a href="{{ route('product', $product->id) }}" class="product__card">
+       
+            <a href="{{ route('product', $product->id) }}" class="product__card box">
                 <div class="product__card-img" style="background-image: url({{ asset('storage/' . $product->thumbnail) }})">
                 </div>
                 <div class="product__card-text">
@@ -72,6 +72,7 @@
                     
                 </div>
             </a>
+        
         @endfor
             
 
@@ -87,7 +88,7 @@
             <div class="teams__box">
 
                 @foreach ($teams as $team)
-                    <div class="team"><a href=""><img src="{{ asset('storage/' . $team->logo) }}"
+                    <div class="team"><a href="{{route('team',$team->id)}}"><img src="{{ asset('storage/' . $team->logo) }}"
                                 alt=""></a>
                     </div>
                 @endforeach

@@ -14,14 +14,16 @@ class PagesController extends Controller
     {
         $products = Product::all();
         $jerseys = Product::with('category')
-            ->whereHas('category', function ($query) {
-                $query->where('name', 'koszulki');
-            })
-            ->get();
+    ->whereHas('category', function ($query) {
+        $query->where('name', 'koszulki');
+    })
+    ->orderBy('created_at', 'desc')
+    ->get();
         $hats = Product::with('category')
             ->whereHas('category', function ($query) {
                 $query->where('name', 'czapki');
             })
+            ->orderBy('created_at', 'desc')
             ->get();
 
         $teams = Team::all();
@@ -41,26 +43,36 @@ class PagesController extends Controller
 
         return (view('pages/product', ['product' => $product, 'products' => $products, 'team' => $team]));
     }
-    function jerseys(){
+    function jerseys()
+    {
         $jerseys = Product::with('category')
             ->whereHas('category', function ($query) {
                 $query->where('name', 'koszulki');
             })
             ->get();
-            
-            
-            return (view('pages/jerseys', ['jerseys' => $jerseys,]));
+
+
+        return (view('pages/jerseys', ['jerseys' => $jerseys,]));
     }
-    function hats(){
+    function hats()
+    {
         $hats = Product::with('category')
             ->whereHas('category', function ($query) {
                 $query->where('name', 'czapki');
             })
             ->get();
-            return (view('pages/hats', ['hats' => $hats,]));
+        return (view('pages/hats', ['hats' => $hats,]));
     }
-    function newest(){
+    function newest()
+    {
         $products = Product::orderByDesc('created_at')->get();
-        return (view('pages/newest',['products'=>$products]));
+        return (view('pages/newest', ['products' => $products]));
+    }
+    function team($id)
+    {
+        $team = Team::findOrFail($id);
+        $teamId = $team->id;
+        $products = Product::where('team_id', $teamId)->get();
+        return (view('pages/team', ['products' => $products]));
     }
 }
