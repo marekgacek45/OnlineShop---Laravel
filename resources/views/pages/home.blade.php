@@ -28,7 +28,7 @@
             <div class="about__boxes">
                 <div class="about__box about__box--one">
                     <div class="header__opacity"></div>
-                    <a href="">
+                    <a href="{{route('jerseys')}}">
                         <h2>Koszulki</h2>
                         <p>Największy wybór świetnych koszulek i bluz hokejowych</p>
                     </a>
@@ -36,7 +36,7 @@
 
                 <div class="about__box about__box--two">
                     <div class="header__opacity"></div>
-                    <a href="">
+                    <a href="{{route('hats')}}">
                         <h2>Czapki</h2>
                         <p>Największy wybór świetnych czapek Twoich ulubionych drużyn</p>
                     </a>
@@ -68,6 +68,8 @@
                 <div class="product__card-text">
                     <h2>{{ $product->title }}</h2>
                     <h3>{{ $product->price }} zł</h3>
+
+                    
                 </div>
             </a>
         @endfor

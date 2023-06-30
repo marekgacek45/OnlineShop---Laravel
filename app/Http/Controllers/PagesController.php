@@ -14,18 +14,18 @@ class PagesController extends Controller
     {
         $products = Product::all();
         $jerseys = Product::with('category')
-                ->whereHas('category', function ($query) {
-                    $query->where('name', 'koszulki');
-                })
-                ->get();
+            ->whereHas('category', function ($query) {
+                $query->where('name', 'koszulki');
+            })
+            ->get();
         $hats = Product::with('category')
-                ->whereHas('category', function ($query) {
-                    $query->where('name', 'czapki');
-                })
-                ->get();
+            ->whereHas('category', function ($query) {
+                $query->where('name', 'czapki');
+            })
+            ->get();
 
         $teams = Team::all();
-        return (view('pages/home', ['products' => $products, 'teams' => $teams,'jerseys'=>$jerseys,'hats'=>$hats]));
+        return (view('pages/home', ['products' => $products, 'teams' => $teams, 'jerseys' => $jerseys, 'hats' => $hats]));
     }
     function userPanel()
     {
@@ -40,5 +40,27 @@ class PagesController extends Controller
 
 
         return (view('pages/product', ['product' => $product, 'products' => $products, 'team' => $team]));
+    }
+    function jerseys(){
+        $jerseys = Product::with('category')
+            ->whereHas('category', function ($query) {
+                $query->where('name', 'koszulki');
+            })
+            ->get();
+            
+            
+            return (view('pages/jerseys', ['jerseys' => $jerseys,]));
+    }
+    function hats(){
+        $hats = Product::with('category')
+            ->whereHas('category', function ($query) {
+                $query->where('name', 'czapki');
+            })
+            ->get();
+            return (view('pages/hats', ['hats' => $hats,]));
+    }
+    function newest(){
+        $products = Product::orderByDesc('created_at')->get();
+        return (view('pages/newest',['products'=>$products]));
     }
 }

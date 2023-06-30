@@ -1,0 +1,107 @@
+@use "../utilities/colors";
+@use "../utilities/variables";
+@use "../utilities/mixins";
+
+.category {
+    &__container {
+        display: flex;
+        flex-direction: column;
+        width:100%;
+        align-items: center;
+        gap: 1em;
+        margin-top: 2em;
+        & .product {
+            border: 1px solid red;
+            width: 100%;
+            display: flex;
+            background-color: colors.$white-bgc;
+            padding: 1em;
+            border-radius: variables.$border-radius;
+            box-shadow: variables.$box-shadow;
+            transition: all variables.$transition;
+            border: 1px solid colors.$color-primary;
+
+            padding: 1em;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            @include mixins.small-devices {
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: normal;
+            }
+            
+            &__thumbnail{
+                
+                width: 250px;
+                height: 200px;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                @include mixins.small-devices {
+                    height: 250px;
+                }
+                @include mixins.medium-devices {
+                    width: 450px;
+                    height: 350px;
+                }
+                @include mixins.large-devices {
+                    width: 550px;
+                }
+            }
+            &__text{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
+                align-items: center;
+                width: 50%;
+                gap: .5em;
+                margin-top: 1em;
+                 & .desc{
+                    display: none;
+                    @include mixins.small-devices {
+                        display: inline-block;
+                    }
+                 }
+                @include mixins.small-devices {
+                    gap:0;
+                    margin-top: 0em;
+                }
+            }
+            &__images{
+                width: 50px;
+                height: 50px;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                display: none;
+                @include mixins.small-devices {
+                    display: inline-block;
+                }
+                
+            }
+            &__actions{
+                display: flex;
+                gap: 1em;
+                flex-direction: column;
+                @include mixins.small-devices {
+                    flex-direction: row;
+                }
+                & button{
+                    padding: .7em 1.4em;
+                    border-radius: variables.$border-radius;
+                    z-index: 10;
+                    font-weight: bold;
+                    color: colors.$light-font;
+                    background-color: colors.$color-primary;
+                    border: none;
+                    cursor: pointer;
+
+                    @include mixins.medium-devices {
+                        padding: 1em 2em;
+                    }
+                }
+            }
+        }
+    }
+}

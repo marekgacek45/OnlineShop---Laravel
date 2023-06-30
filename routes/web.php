@@ -23,6 +23,9 @@ use App\Http\Controllers\CategoryController;
 
 
 Route::get('/', [PagesController::class, ('home')])->name('home');
+Route::get('/koszulki', [PagesController::class, ('jerseys')])->name('jerseys');
+Route::get('/czapki', [PagesController::class, ('hats')])->name('hats');
+Route::get('/nowosci', [PagesController::class, ('newest')])->name('newest');
 Route::get('/user', [PagesController::class, ('userPanel')])->name('userPanel');
 Route::get('/produkt/{id}', [PagesController::class, ('product')])->name('product');
 
