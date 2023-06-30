@@ -30,7 +30,7 @@
             @enderror
         </div>
         <div class="create__field">
-            <button type="submit">Dodaj</button>
+            <button type="submit" style="margin-bottom: 2em">Dodaj</button>
 
         </div>
       
@@ -51,7 +51,7 @@
                 <td><form action="{{route('admin.categories.destroy',$team->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit"><i class="uil uil-times-circle"></i></button>
+                <button type="submit" class="deleteBtn"><i class="uil uil-times-circle"></i></button>
                 </form></td>
             </tr>
             @endforeach

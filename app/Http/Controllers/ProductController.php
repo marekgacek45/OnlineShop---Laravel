@@ -23,7 +23,7 @@ class ProductController extends Controller
     {
 
         $categories = Category::all();
-        $teams = Team::all();
+        $teams = Team::orderBy('name', 'asc')->get();
         $sizes = Size::all();
         $genders = Gender::all();
 
@@ -61,14 +61,15 @@ class ProductController extends Controller
         $product->genders()->attach($request->genders);
 
 
-        return back()->with('success', 'Produkt dodany');
+        // return back()->with('success', 'Produkt dodany');
+        return redirect(route('product',$product->id))->with('success', 'produkt dodany');
     }
 
     public function edit($id)
     {
         $product = Product::findOrFail($id);
         $categories = Category::all();
-        $teams = Team::all();
+        $teams = Team::orderBy('name', 'asc')->get();
         $sizes = Size::all();
         $genders = Gender::all();
 

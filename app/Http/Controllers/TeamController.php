@@ -9,7 +9,7 @@ class TeamController extends Controller
 {
     public function index()
     {
-        $teams = Team::all();
+        $teams = Team::orderBy('name', 'asc')->get();
         return view('admin/pages/teams', ['teams' => $teams]);
     }
     public function store(Request $request)

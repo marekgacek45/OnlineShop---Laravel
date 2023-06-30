@@ -87,7 +87,7 @@ p {
     font-size: 1rem;
     font-weight: bold;
     color: colors.$light-font;
-    background-color: colors.$color-primary!important;
+    background-color: colors.$color-primary !important;
     border: none;
     cursor: pointer;
 }
@@ -101,4 +101,18 @@ p {
     transition: all variables.$transition;
     &:hover {
         box-shadow: none;
-}}
+    }
+}
+
+.deleteBtn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: color variables.$transition;
+    & :hover {
+        color: colors.$color-primary;
+    }
+    & i {
+        font-size: 1.7rem;
+    }
+}

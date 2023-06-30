@@ -26,7 +26,7 @@ class PagesController extends Controller
             ->orderBy('created_at', 'desc')
             ->get();
 
-        $teams = Team::all();
+            $teams = Team::orderBy('name', 'asc')->get();
         return (view('pages/home', ['products' => $products, 'teams' => $teams, 'jerseys' => $jerseys, 'hats' => $hats]));
     }
     function userPanel()
